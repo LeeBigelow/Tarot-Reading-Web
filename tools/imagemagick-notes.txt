@@ -1,0 +1,36 @@
+# vim: ft=bash
+# Use parallel to process multiple images at once
+# This changes jpg files to png, chopping off bottom 30px
+parallel 'magick {} -gravity south -chop 0x30 chop-{.}.png' ::: *.jpg
+
+# Fill border with a different color
+# Using red as an example here, and using point 3,3 as the 
+# 'seed' point for the fill
+magick img.png -fuzz 10% -fill red -draw 'color 3,3 floodfill' out.png
+
+# Replace all pixels close to white with another color 
+magick img.png -fuzz 20% -fill "#D8C39F" -opaque white out.png
+
+# Useful contrast ajustments
+magick img.png -channel RGB -contrast-stretch 1x1% out.png
+magick img.png -level 10% out.png
+
+# Find the line color, darken it
+# First reduce image colors, list those colors
+magick img.png -colors 8 -unique-colors txt:
+
+# Display a square of color
+magick -size 100x100 "xc:rgb(176,89,60)" show:
+
+# Display a single color separation from image
+magick img.png -colors 8 -depth 8 +transparent "rgb(176,89,60)" -flatten show:
+
+# Give a point position, use its color as the seed color to replace with fill
+magick img.gif -fuzz 10% -fill red -draw 'color 0,0 floodfill' out.png
+
+# Once line color found replace with darker color and up contrast a bit
+magick img.png -fuzz 10% -fill "#4a3f2eFF" -opaque "#6A5F4EFF" -level 10% out.png
+
+# overlay lighten color for old muddy images
+ magick img.png \( +clone -modulate 200%,200%,100% -colors 64 -fuzz 50% -transparent white -channel A -evaluate multiply 0.6 +channel \) -composite out.png 
+
