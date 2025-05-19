@@ -1,0 +1,7 @@
+/* vim: set sw=2 sts=2 : */
+#layout-container {
+  justify-content: space-evenly;  
+  width: calc( ( var(--img-width) + 10px ) * 6 );
+  margin-left: auto;
+  margin-right: auto;
+}

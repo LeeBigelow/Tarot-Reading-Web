@@ -1,20 +1,34 @@
 const imageDir = 'resources/images/'
+const dropdownContent = document.getElementById('dropdown-content');
+const deckTitle = document.getElementById('deck-title');
+const backingImage = document.getElementById('backing-image');
+backingImage.addEventListener('click', function () {showCard();} );
+var selectedDeck = '2010_Yoav_Ben-Dov'
 
 const cardDecks = [
-  '1709_Pierre_Madenié',
-  '1760_Nicolas_Conver',
-  '1789_Etteilla_Livre_de_Thot',
-  '1835_Gumppenberg_Dellarocca',
-  '1880_Avondo_Dellarocca',
-  '1891_Grimaud_Arnoult',
-  '1909_Rider-Waite-Smith',
-  '1910_Rider-Waite-Smith',
-  '1930_Paul_Marteau',
-  '1943_Crowley-Harris_Thoth',
-  '1997_Camoin-Jodorowsky',
-  '2007_Jean-Claude_Flornoy_(Noblet)',
-  '2010_Yoav_Ben-Dov',
+    '1709_Pierre_Madenié',
+    '1760_Nicolas_Conver',
+    '1789_Etteilla_Livre_de_Thot',
+    '1835_Gumppenberg_Dellarocca',
+    '1880_Avondo_Dellarocca',
+    '1891_Grimaud_Arnoult',
+    '1909_Rider-Waite-Smith',
+    '1910_Rider-Waite-Smith',
+    '1930_Paul_Marteau',
+    '1943_Crowley-Harris_Thoth',
+    '1997_Camoin-Jodorowsky',
+    '2007_Jean-Claude_Flornoy_(Noblet)',
+    '2010_Yoav_Ben-Dov',
 ];
+
+cardDecks.forEach(deckDir => {
+    const deckDiv = document.createElement('div');
+    deckDiv.addEventListener('click', function () {
+       changeDeck(deckDir);
+    });
+    deckDiv.innerHTML = deckDir.replace(/_/g,' ');
+    dropdownContent.appendChild(deckDiv);
+});
 
 const cardCodes = [
     'B01', 'B02', 'B03', 'B04', 'B05', 'B06', 'B07',
@@ -49,7 +63,7 @@ function getRandomDeck() {
 };
 
 function dealCard(cardDiv) {
-    const backingRect = cardBacking.getBoundingClientRect();
+    const backingRect = backingImage.getBoundingClientRect();
     const cardRect = cardDiv.getBoundingClientRect();
     var xdiff = backingRect.left - cardRect.left;
     var ydiff = backingRect.top - cardRect.top; 
@@ -71,7 +85,7 @@ var cardNum = 1
 function showCard() {
     if (cardNum == numCards+2) { location.reload(); };
     if (cardNum == numCards+1) { 
-        cardBacking.style.opacity = "0.6"; 
+        backingImage.style.opacity = "0.6"; 
         cardNum++; 
         return;
     };
@@ -101,7 +115,7 @@ function showCard() {
     }
     cardFrontDiv.appendChild(imageFront);
     cardBackDiv.appendChild(imageBack);
-    
+
     switch (selectedDeck) {
         case '1909_Rider-Waite-Smith':
             cardBackDiv.innerHTML += waiteMeanings[cardCode];
@@ -136,24 +150,23 @@ function showCard() {
     cardNum++;
 };
 
-const selectedDeck = getRandomDeck();
+function changeDeck(deckDir) {
+    console.log(deckDir);
+    selectedDeck = deckDir;
+    deckTitle.innerHTML = selectedDeck.replace(/_/g,' ');
 
-const deckTitle = document.getElementById('deck-title');
-deckTitle.innerHTML = selectedDeck.replace(/_/g,' ');
-deckTitle.innerHTML = deckTitle.innerHTML.replace(/priv-/g,'');
+    backingImage.src = imageDir + selectedDeck + '/XBA.webp';
+    backingImage.alt = backingImage.src;
+}
 
-const backingImage = document.getElementById('backing-image');
-const cardBacking = document.getElementById('card-backing')
-backingImage.src = imageDir + selectedDeck + '/XBA.webp';
-backingImage.alt = backingImage.src;
-backingImage.addEventListener('click', function () {showCard();} );
+changeDeck(getRandomDeck());
 
 switch (document.title.split(' - ')[1]) {
     case 'Celtic Cross':
         var numCards = 10;
         break;
     case 'Story':
-        var numCards = 7;
+        var numCards = 5;
         break;
     default:
         var numCards = 1;

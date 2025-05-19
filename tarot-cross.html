@@ -1,42 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Tarot Reading - Celtic Cross</title>
-        <link rel="stylesheet" href="resources/css/tarot-cross.css">
-    </head>
-    <body>
-        <h1>Tarot Reading - Celtic Cross</h1>
-        <div id="layout-container">
-            <div id="card-backing" class="card">
-                <img id="backing-image"/>
-                <div id="deck-title"></div>
-            </div>
-            <div id="col-1" class="column">
-                <div id="card-5" class="card"></div>
-            </div>
-            <div id="col-2" class="column">
-                <div id="card-3" class="card"></div>
-                <div id="card-1" class="card"></div>
-                <div id="card-2" class="card"></div>
-                <div id="card-4" class="card"></div>
-            </div>
-            <div id="col-3" class="column">
-                <div id="card-6" class="card"></div>
-            </div>
-            <div id="col-4" class="column">
-                <div id="card-10" class="card"></div>
-                <div id="card-9" class="card"></div>
-                <div id="card-8" class="card"></div>
-                <div id="card-7" class="card"></div>
-            </div>
-        </div>
-        <script src="resources/js/mcelroy-meanings.js"></script>
-        <script src="resources/js/bendov-meanings.js"></script>
-        <script src="resources/js/crowley-meanings.js"></script>
-        <script src="resources/js/etteilla-meanings.js"></script>
-        <script src="resources/js/waite-meanings.js"></script>
-        <script src="resources/js/tarot-deal.js"></script>
-    </body>
+  <head>
+    <meta charset="UTF-8">
+    <title>Tarot Reading - Celtic Cross</title>
+    <link rel="stylesheet" href="resources/css/default.css">
+    <link rel="stylesheet" href="resources/css/cross.css">
+  </head>
+  <body>
+    <div class="dropdown">
+      <div id="dropdown-label" class="dropdown-label">Decks</div>
+      <div id="dropdown-content" class="dropdown-content"></div>
+    </div>  
+    <h1>Celtic Cross</h1>
+    <div id="layout-container">
+      <div class="card card-backing">
+        <img id="backing-image"/>
+        <div id="deck-title"></div>
+      </div>
+      <div id="col-1" class="column">
+        <div id="card-5" class="card"></div>
+      </div>
+      <div id="col-2" class="column">
+        <div id="card-3" class="card"></div>
+        <div id="card-1" class="card"></div>
+        <div id="card-2" class="card"></div>
+        <div id="card-4" class="card"></div>
+      </div>
+      <div id="col-3" class="column">
+        <div id="card-6" class="card"></div>
+      </div>
+      <div id="col-4" class="column">
+        <div id="card-10" class="card"></div>
+        <div id="card-9" class="card"></div>
+        <div id="card-8" class="card"></div>
+        <div id="card-7" class="card"></div>
+      </div>
+    </div>
+    <script src="resources/js/mcelroy-meanings.js"></script>
+    <script src="resources/js/bendov-meanings.js"></script>
+    <script src="resources/js/crowley-meanings.js"></script>
+    <script src="resources/js/etteilla-meanings.js"></script>
+    <script src="resources/js/waite-meanings.js"></script>
+    <script src="resources/js/deal.js"></script>
+  </body>
 </html>
-
+<!-- vim: set sts=2 sw=2 : -->

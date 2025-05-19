@@ -1,0 +1,151 @@
+/* vim: set sw=2 sts=2 : */
+:root {
+  --img-width: 270px;
+  --img-height: 400px;
+}
+
+body {
+  background: #1b1a23;
+  color:lightgray;
+}
+
+#deck-title {
+  color:lightgray;
+  text-align: center;
+  font-size: 1em;
+  padding: 0px;
+}
+
+#layout-container {
+  display: flex;
+  background-color: #2b2a33;
+  border: 50px solid #2b2a33;
+  border-radius: 30px;
+}
+
+h1 {
+  display: block;
+  position: relative;
+  font-size: 1.5em;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  display: block;
+  width: var(--img-width);
+  height: var(--img-height);
+  margin-left: auto;
+  margin-right: auto;
+  perspective: 1000px;
+  transition: transform 0.8s;
+}
+
+.card:hover { 
+  z-index: 1;
+}
+
+.card-inner {
+  width: var(--img-width);
+  height: var(--img-height);
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.card-inner.is-flipped {
+  transform: scale(170%) rotateY(180deg);
+}
+
+.card-front, 
+.card-back {
+  position: absolute;
+  width: var(--img-width);
+  height: var(--img-height);
+  backface-visibility: hidden;
+}
+
+.card-backing img,
+.card-front img {
+  display: block;
+  height: var(--img-height);
+  margin-left: auto;
+  margin-right: auto;
+  background: black;
+}
+
+.card-back {
+  background-color: #1b1a23;
+  color: lightgray;
+  transform: rotateY(180deg);
+}
+
+.card-back .card-title {
+  text-align: center;
+  font-style: bold;
+}
+
+.card-back p {
+  text-align: left;
+  font-size: 0.6em;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.card-back p.author {
+  font-size: 0.5em;
+}
+
+.card-back img {
+  float: left;
+  width: calc(var(--img-width)/3);
+  margin: 10px 10px 0px 5px;
+}
+
+.card-backing:hover {
+  z-index: 0;
+}
+
+.card-front img,
+.card-backing img,
+.card-back { 
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  background-color: #2b2a33;
+  padding: 10px;
+  font-size: 14pt;
+}
+
+.dropdown:hover {
+  background-color: #4b4a53;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  margin: 0px -10px;
+  border: 3px solid #1b1a23;
+  background-color: #2b2a33; 
+  width: 18em;
+  font-size: 10pt;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content div {
+  padding: 10px;
+}
+
+.dropdown-content div:hover {
+  background-color: lightgray;
+  color: #2b2a33;
+}
