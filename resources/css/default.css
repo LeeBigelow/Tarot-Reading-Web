@@ -9,11 +9,13 @@ body {
   color:lightgray;
 }
 
-#deck-title {
-  color:lightgray;
+h1 {
+  display: block;
+  position: relative;
+  font-size: 1.5em;
   text-align: center;
-  font-size: 1em;
-  padding: 0px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #layout-container {
@@ -23,13 +25,8 @@ body {
   border-radius: 30px;
 }
 
-h1 {
-  display: block;
-  position: relative;
-  font-size: 1.5em;
+#deck-title {
   text-align: center;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .card {
@@ -79,28 +76,24 @@ h1 {
   background-color: #1b1a23;
   color: lightgray;
   transform: rotateY(180deg);
-}
-
-.card-back .card-title {
-  text-align: center;
-  font-style: bold;
-}
-
-.card-back p {
-  text-align: left;
-  font-size: 0.6em;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-.card-back p.author {
-  font-size: 0.5em;
-}
-
-.card-back img {
-  float: left;
-  width: calc(var(--img-width)/3);
-  margin: 10px 10px 0px 5px;
+  & .card-title {
+    text-align: center;
+    font-weight: bold;
+  }
+  & p {
+    text-align: left;
+    font-size: 0.6em;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+  & p.author {
+    font-size: 0.5em;
+  }
+  & img {
+    float: left;
+    width: calc(var(--img-width)/3);
+    margin: 10px 10px 0px 5px;
+  }
 }
 
 .card-backing:hover {
@@ -133,7 +126,7 @@ h1 {
   border: 3px solid #1b1a23;
   background-color: #2b2a33; 
   width: 18em;
-  font-size: 10pt;
+  font-size: 12pt;
   z-index: 1;
 }
 
@@ -143,9 +136,17 @@ h1 {
 
 .dropdown-content div {
   padding: 10px;
+  & a {
+    color: lightgray;
+    text-decoration: none;
+  }
 }
 
 .dropdown-content div:hover {
   background-color: lightgray;
   color: #2b2a33;
+  & a {
+    color: #2b2a33;
+    text-decoration: none;
+  }
 }
