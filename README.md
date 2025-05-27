@@ -21,7 +21,9 @@ cd Tarot-Reading-Web
 firefox celtic-cross.html
 ```
 
-Nothing fancy. Unfortunately won't work on your phone. Phone browsers don't seem to like reading local files. Probably have to make it an app, or some sort of all-in-one self contained file. Still, feel free to use and modify at will.
+Nothing fancy. So far just a Celtic-Cross or Five-Card-Story layout. Click on the deck to deal out the cards. Click on a card to flip and get some interpretation info. The top left has "Decks" and "Layouts" menus. You can switch decks at any time and have cards from different decks in the same layout. Switching layouts will restart the reading. A random deck gets selected at the start of each reading.
+
+Unfortunately won't work on your phone. Phone browsers don't seem to like reading local files. Probably have to make it an app, or some sort of all-in-one self contained file. Still, feel free to use and modify at will.
 
 I also have some notes on how I modified the images if you're keen.
 
