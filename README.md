@@ -1,9 +1,9 @@
 # Tarot-Reading-Web
-Simple Tarot reading wth vintage card images using HTML, CSS, JavaScript, and vintage.
+Simple Tarot reading wth vintage card images using HTML, CSS, JavaScript.
 
 I wanted play with ImageMagick and GIMP. I had also been exploring the online museum archives of old Tarot cards.  Decided to see if I could clean the cards up a bit. Then I wanted to play with JavaScript and thus I made this.
 
-If you want to play with it can download as a zip, unzip, and load the html files in a web browser:
+If you want to play with it you should be able to just download as a zip, unzip, and load the html files in a web browser:
 
 [Tarot-Reading-Web-main.zip](https://github.com/LeeBigelow/Tarot-Reading-Web/archive/refs/heads/main.zip)
 
@@ -13,7 +13,7 @@ cd Tarot-Reading-Web-main
 firefox five-card-story.html
 ```
 
-Or clone it:
+Or git clone it:
 
 ```
 git clone https://github.com/LeeBigelow/Tarot-Reading-Web.git
