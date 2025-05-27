@@ -37,6 +37,7 @@ I also have some notes on how I modified the images if you're keen.
 - [1835 Gumppenberg Dellarocca - British Museum](https://www.britishmuseum.org/collection/object/P_1896-0501-12?selectedImageId=1585994001)
 - [1835 Gumppenberg Dellarocca - etteilla.org](https://etteilla.org/en/deck/33/original-gumppenberg-dellarocca-tarot)
 - [1910 Rider Waite Smith - archive.org](https://archive.org/details/rider-waite-tarot)
+- [2010 Yoav Ben-Dov (Nicolas Conver reproduction)](https://cbdtarot.com/the-cards/)
 
 ## Meanings
 
@@ -45,6 +46,7 @@ I also have some notes on how I modified the images if you're keen.
 - [Le grand Etteilla, ou, l'art de tirer les cartes](https://archive.org/details/b29321220)
 - [Etteilla in English](https://stolen-thyme.com/etteilla-in-english/)
 - [Mark McElroy via TarotTools.com (creative commons share and share alike)](https://tarottools.com/tarot-card-meanings-toc)
+- [Yoav Ben-Dov Little-White-Book](https://cbdtarot.com/download/)
 
 ## Screenshot
 
