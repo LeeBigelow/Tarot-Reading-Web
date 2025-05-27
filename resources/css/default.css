@@ -7,6 +7,7 @@
 body {
   background: #1b1a23;
   color:lightgray;
+  margin-top: 50px;
 }
 
 h1 {
@@ -52,7 +53,7 @@ h1 {
 }
 
 .card-inner.is-flipped {
-  transform: scale(170%) rotateY(180deg);
+  transform: scale(200%) rotateY(180deg);
 }
 
 .card-front, 
@@ -125,7 +126,7 @@ h1 {
   margin: 0px -10px;
   border: 3px solid #1b1a23;
   background-color: #2b2a33; 
-  width: 18em;
+  width: 15em;
   font-size: 12pt;
   z-index: 1;
 }

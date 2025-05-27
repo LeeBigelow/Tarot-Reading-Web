@@ -1,9 +1,9 @@
 #!/bin/bash
 # Note cardDeck end ]; needs to be first one in file
-oldf="../resources/js/tarot-deal.js"
-newf="../resources/js/new-tarot-deal.js"
+oldf="../resources/js/deal.js"
+newf="../resources/js/new-deal.js"
 sed -e '/const cardDeck/q' $oldf > $newf
-echo "$(ls ../resources/images/)" | sed "s/^/  '/; s/$/',/" >> $newf
+echo "$(ls ../resources/images/)" | sed "s/^/    '/; s/$/',/" >> $newf
 sed -n '/];/,$p' $oldf >> $newf
 mv $oldf $oldf.$EPOCHSECONDS.bak
 mv $newf $oldf

@@ -1,0 +1,5 @@
+parallel magick {} -gravity south -chop 0x30 {.}.png ::: *.jpg
+parallel -q magick {} -fuzz 20% -fill #D8C39F -opaque white filled-{} ::: *.png
+parallel -q magick {} -fuzz 10% -fill "#4a3f2eFF" -opaque "#6A5F4EFF" -level 10% ../adjusted/{} ::: *.png
+magick B01.png -fuzz 20% -fill red -floodfill +3+3 white png:- | pqiv -
+magick B01.png -fuzz 10% -fill red -draw color 3,3 floodfill  png:- | pqiv -

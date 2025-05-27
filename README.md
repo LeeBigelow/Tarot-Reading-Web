@@ -1,10 +1,31 @@
 # Tarot-Reading-Web
-Simple Tarot reading using HTML, CSS, JavaScript, and vintage card images.
+Simple Tarot reading wth vintage card images using HTML, CSS, JavaScript, and vintage.
 
-Deck images are not stored in this github, they can be found here:
-[Deck Images](https://drive.google.com/drive/folders/1u3_QSi-YJDf84ZH5FjdO13Tc_AFnhNWU?usp=sharing)
+I wanted play with ImageMagick and GIMP. I had also been exploring the online museum archives of old Tarot cards.  Decided to see if I could clean the cards up a bit. Then I wanted to play with JavaScript and thus I made this.
 
-## Images
+If you want to play with it can download as a zip, unzip, and load the html files in a web browser:
+
+[Tarot-Reading-Web-main.zip](https://github.com/LeeBigelow/Tarot-Reading-Web/archive/refs/heads/main.zip)
+
+``` 
+unzip Tarot-Reading-Web-main.zip
+cd Tarot-Reading-Web-main
+firefox five-card-story.html
+```
+
+Or clone it:
+
+```
+git clone https://github.com/LeeBigelow/Tarot-Reading-Web.git
+cd Tarot-Reading-Web
+firefox celtic-cross.html
+```
+
+Nothing fancy. Might even work on your phone. Feel free to use and modify at will.
+
+I also have some notes on how I modified the images if you're keen.
+
+## Image Sources
 
 - [1709 Pierre Madenié (no trumps) - British Museum](https://www.britishmuseum.org/collection/object/P_1896-0501-590-1-56)
 - [1709 Pierre Madenié (only trumps) - tarot-demarseille-millennium.com](https://tarot-de-marseille-millennium.com/galerie_tarots_historiques.html)    

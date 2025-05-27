@@ -11,13 +11,7 @@ const cardDecks = [
     '1789_Etteilla_Livre_de_Thot',
     '1835_Gumppenberg_Dellarocca',
     '1880_Avondo_Dellarocca',
-    '1891_Grimaud_Arnoult',
     '1909_Rider-Waite-Smith',
-    '1910_Rider-Waite-Smith',
-    '1930_Paul_Marteau',
-    '1943_Crowley-Harris_Thoth',
-    '1997_Camoin-Jodorowsky',
-    '2007_Jean-Claude_Flornoy_(Noblet)',
     '2010_Yoav_Ben-Dov',
 ];
 
@@ -120,14 +114,6 @@ function showCard() {
         case '1909_Rider-Waite-Smith':
             cardBackDiv.innerHTML += waiteMeanings[cardCode];
             cardBackDiv.innerHTML += '<p class="author">-- A. E. Waite</p>';
-            break;
-        case '1910_Rider-Waite-Smith':
-            cardBackDiv.innerHTML += waiteMeanings[cardCode];
-            cardBackDiv.innerHTML += '<p class="author">-- A. E. Waite</p>';
-            break;
-        case '1943_Crowley-Harris_Thoth':
-            cardBackDiv.innerHTML += crowleyMeanings[cardCode];
-            cardBackDiv.innerHTML += '<p class="author">-- Aleister Crowley</p>';
             break;
         case '1789_Etteilla_Livre_de_Thot':
             cardBackDiv.innerHTML += etteillaMeanings[cardCode];
