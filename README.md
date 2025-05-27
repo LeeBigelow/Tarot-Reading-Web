@@ -21,7 +21,7 @@ cd Tarot-Reading-Web
 firefox celtic-cross.html
 ```
 
-Nothing fancy. Might even work on your phone. Feel free to use and modify at will.
+Nothing fancy. Unfortunately won't work on your phone. Phone browsers don't like local javascript, or some such thing. Still, feel free to use and modify at will.
 
 I also have some notes on how I modified the images if you're keen.
 
