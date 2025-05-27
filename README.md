@@ -27,7 +27,7 @@ Unfortunately won't work on your phone. Phone browsers don't seem to like readin
 
 I also have some notes on how I modified the images if you're keen.
 
-If you just want to browse the deck images here's a Google Drive folder of the deck images: [Tarot Deck on Google Drive](https://drive.google.com/drive/folders/1u3_QSi-YJDf84ZH5FjdO13Tc_AFnhNWU?usp=drive_link)
+If you just want to browse the deck images here's a Google Drive folder of the deck images: [Tarot Decks on Google Drive](https://drive.google.com/drive/folders/1u3_QSi-YJDf84ZH5FjdO13Tc_AFnhNWU?usp=drive_link)
 
 ## Image Sources
 
