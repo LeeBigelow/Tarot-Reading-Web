@@ -1,5 +1,5 @@
 # Tarot-Reading-Web
-Simple Tarot reading wth vintage card images using HTML, CSS, JavaScript.
+Simple Tarot reading with vintage card images using HTML, CSS, JavaScript.
 
 I wanted play with ImageMagick and GIMP. I had also been exploring the online museum archives of old Tarot cards.  Decided to see if I could clean the cards up a bit. Then I wanted to play with JavaScript and thus I made this.
 
@@ -21,7 +21,7 @@ cd Tarot-Reading-Web
 firefox celtic-cross.html
 ```
 
-Nothing fancy. Unfortunately won't work on your phone. Phone browsers don't seem to like reading the local files. Probably have to make it an app, or some sort of all-in-one self contained file. Still, feel free to use and modify at will.
+Nothing fancy. Unfortunately won't work on your phone. Phone browsers don't seem to like reading local files. Probably have to make it an app, or some sort of all-in-one self contained file. Still, feel free to use and modify at will.
 
 I also have some notes on how I modified the images if you're keen.
 
@@ -42,7 +42,7 @@ I also have some notes on how I modified the images if you're keen.
 - [The Tarot By S. L. MacGregor Mathers](https://sacred-texts.com/tarot/mathers/index.htm)
 - [Le grand Etteilla, ou, l'art de tirer les cartes](https://archive.org/details/b29321220)
 - [Etteilla in English](https://stolen-thyme.com/etteilla-in-english/)
-- [Mark McElroy via TarotTools.com (creatvie commons share and share alike)](https://tarottools.com/tarot-card-meanings-toc)
+- [Mark McElroy via TarotTools.com (creative commons share and share alike)](https://tarottools.com/tarot-card-meanings-toc)
 
 ## Screenshot
 
