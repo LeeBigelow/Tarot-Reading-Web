@@ -23,7 +23,9 @@ firefox celtic-cross.html
 
 Nothing fancy. So far just a Celtic-Cross or Five-Card-Story layout. Click on the deck to deal out the cards. Click on a card to flip and get some interpretation info. The top left has "Decks" and "Layouts" menus. You can switch decks at any time and have cards from different decks in the same layout. Switching layouts will restart the reading. A random deck gets selected at the start of each reading.
 
-Unfortunately won't work on your phone. Phone browsers don't seem to like reading local files. Probably have to make it an app, or some sort of all-in-one self contained file. Still, feel free to use and modify at will.
+Unfortunately the full version won't work on your phone. Phone browsers don't ike reading local files. I have made an version where the css, javascript, and card images (very compressed and base64 encoded) are all embeded in the html. So far I've just done the 1760 Conver deck with the Celtic Cross layout. It's actually not that big, about 1.7 MB. It works on my phone, and might work on yours? It's included in this repo as `celtic-cross-1760-conver-complete.html` and here's a Google Drive link if you want to try it:
+
+[celtic-cross-1760-conver-complete.html](https://drive.google.com/file/d/1stWtpUV-DtsQG7BTq6Cp0PZtYBBDTKCY/view?usp=drive_link)
 
 I also have some notes on how I modified the images if you're keen.
 
