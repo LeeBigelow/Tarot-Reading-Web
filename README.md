@@ -23,7 +23,7 @@ firefox celtic-cross.html
 
 Nothing fancy. So far just a Celtic-Cross or Five-Card-Story layout. Click on the deck to deal out the cards. Click on a card to flip and get some interpretation info. The top left has "Decks" and "Layouts" menus. You can switch decks at any time and have cards from different decks in the same layout. Switching layouts will restart the reading. A random deck gets selected at the start of each reading.
 
-Unfortunately the full version here won't work on your phone. Phone browsers don't like reading local files. I've made some static versions where the css, javascript, and card images (compressed and base64 encoded) are all embedded in the html. Surprisingly, even with 78 card images, they're only about 2-3 MB. They work on my phone and hopefully will work on yours. In this repo I've include one as `celtic-cross-1760-conver-complete.html` and here's a Google Drive folder with the others:
+Unfortunately the full version here won't work on your phone. Phone browsers don't like reading local files. I've made some static versions where the css, javascript, and card images (compressed and base64 encoded) are all embedded in the html. Surprisingly, even with 78 card images, they're only about 2-3 MB. They work on my phone and hopefully will work on yours. In this repo I've included one as `celtic-cross-1760-conver-complete.html` and here's a Google Drive folder with the others:
 
 [Folder of Completely Embedded Versions (for the phone)](https://drive.google.com/drive/folders/1UBp0SEDm1oi1bKPajRSlmodHPzLwvC8C?usp=drive_link)
 
@@ -31,7 +31,9 @@ You should be able to just download one of the fully embedded html files and ope
 
 I've also included some notes on how I modified the images if you're keen.
 
-If you just want to browse the deck images here's a Google Drive folder of the deck images: [Tarot Decks on Google Drive](https://drive.google.com/drive/folders/1u3_QSi-YJDf84ZH5FjdO13Tc_AFnhNWU?usp=drive_link)
+If you just want to browse the deck images here's a Google Drive folder of the deck images:
+
+[Tarot Decks on Google Drive](https://drive.google.com/drive/folders/1u3_QSi-YJDf84ZH5FjdO13Tc_AFnhNWU?usp=drive_link)
 
 ## Image Sources
 
