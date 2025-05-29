@@ -137,7 +137,6 @@ function showCard() {
 };
 
 function changeDeck(deckDir) {
-    console.log(deckDir);
     selectedDeck = deckDir;
     deckTitle.innerHTML = selectedDeck.replace(/_/g,' ');
 
