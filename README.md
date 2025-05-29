@@ -25,7 +25,7 @@ Nothing fancy. So far just a Celtic-Cross or Five-Card-Story layout. Click on th
 
 Unfortunately the full version here won't work on your phone. Phone browsers don't like reading local files. I've made some static versions where the css, javascript, and card images (compressed and base64 encoded) are all embedded in the html. Surprisingly, even with 78 card images, they're only about 2-3 MB. They work on my phone and hopefully will work on yours. In this repo I've included one as `celtic-cross-1760-conver-embedded.html` and here's a Google Drive folder with the others:
 
-[Folder of Completely Embedded Versions (for the phone)](https://drive.google.com/drive/folders/1UBp0SEDm1oi1bKPajRSlmodHPzLwvC8C?usp=drive_link)
+[Folder of Completely Embedded Versions (for the phone)](https://drive.google.com/drive/folders/1lbfcxlHbkPkIrWJ4lBdQcY3va5lfuAQf?usp=sharing)
 
 You should be able to just download one of the fully embedded html files and open it in a browser. The folder also contains screenshots if you want to check out the decks in various layouts.
 
