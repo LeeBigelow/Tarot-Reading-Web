@@ -1,9 +1,9 @@
 # Tarot-Reading-Web
 Simple Tarot reading with vintage card images using HTML, CSS, JavaScript.
 
-I wanted play with ImageMagick and GIMP. I had also been exploring the online museum archives of old Tarot cards.  Decided to see if I could clean the cards up a bit. Then I wanted to play with JavaScript and thus I made this.
+I had been exploring the online museum archives of old Tarot cards and wanted to try cleaning up the images with ImageMagick and GIMP.  Then I decided to put the cleaned images to use and made this little Tarot reading program.
 
-If you want to play with it you should be able to just download as a zip, unzip, and load the html files in a web browser:
+To use it you should be able to download as a zip, unzip, and load the html files in a web browser:
 
 [Tarot-Reading-Web-main.zip](https://github.com/LeeBigelow/Tarot-Reading-Web/archive/refs/heads/main.zip)
 
@@ -21,9 +21,11 @@ cd Tarot-Reading-Web
 firefox celtic-cross.html
 ```
 
-Nothing fancy. So far just a Celtic-Cross or Five-Card-Story layout. Click on the deck to deal out the cards. Click on a card to flip and get some interpretation info. The top left has "Decks" and "Layouts" menus. You can switch decks at any time and have cards from different decks in the same layout. Switching layouts will restart the reading. A random deck gets selected at the start of each reading.
+Nothing fancy. So far just a Celtic-Cross or Five-Card-Story layout. Click on the deck to deal out the cards. Click on a card to flip and get some interpretation info. The top left has "Decks" and "Layouts" menus. You can switch decks at any time and have cards from different decks in the same layout.
 
-Unfortunately the full version here won't work on your phone. Phone browsers don't like reading local files. I've made some static versions where the css, javascript, and card images (compressed and base64 encoded) are all embedded in the html. Surprisingly, even with 78 card images, they're only about 2-3 MB. They work on my phone and hopefully will work on yours. In this repo I've included one as `celtic-cross-1760-conver-embedded.html` and here's a Google Drive folder with the others:
+## Embedded versions for phones
+
+Unfortunately the full version won't work on your phone. Phone browsers don't like reading local files. Instead I've made some static versions where the css, javascript, and card images (compressed and base64 encoded) are all embedded in the html. They work on my phone and hopefully will work on yours. Here's a Google Drive folder with a variety of embedded versions:
 
 [Folder of Completely Embedded Versions (for the phone)](https://drive.google.com/drive/folders/1lbfcxlHbkPkIrWJ4lBdQcY3va5lfuAQf?usp=sharing)
 
