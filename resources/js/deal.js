@@ -1,9 +1,8 @@
-const imageDir = 'resources/images/'
+const imageDir = 'resources/images/';
 const dropdownContent = document.getElementById('dropdown-content');
 const deckTitle = document.getElementById('deck-title');
 const backingImage = document.getElementById('backing-image');
 backingImage.addEventListener('click', function () {showCard();} );
-var selectedDeck = '2010_Yoav_Ben-Dov'
 
 const cardDecks = [
     '1709_Pierre_Madenié',
@@ -75,7 +74,7 @@ function dealCard(cardDiv) {
     });
 };
 
-var cardNum = 1
+var cardNum = 1;
 function showCard() {
     if (cardNum == numCards+2) { location.reload(); };
     if (cardNum == numCards+1) { 
@@ -150,7 +149,7 @@ switch (document.title.split(' - ')[1]) {
     case 'Celtic Cross':
         var numCards = 10;
         break;
-    case 'Story':
+    case 'Five Card Story':
         var numCards = 5;
         break;
     default:

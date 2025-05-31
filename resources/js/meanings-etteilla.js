@@ -77,4 +77,5 @@ const etteillaMeanings = {
     T20: '<p class="card-title">20. Fortune / Augmentation</p> <p>Upright: Fortune, luck, happiness, joy, bliss, improvement, prosperity, bonus, blessing, benefits, graces, favors, goods, wealth, profits, lot, fate, destiny, adventure, good fortune</p> <p>Reversed: Augmentation, increase, enlargement, abundance, surfeit, growth, development, vegetation, production</p>',
     T21: '<p class="card-title">21. Dissension / Arrogance</p> <p>Upright: Dissension, discord, disturbances, agitation, noise, nuisance, disorder, riots, insurrection, revolt, sedition, rebellion, defection, faction, conspiracy, war, battle, conflict, combat, duel, violence, impulse, outburst, anger, quarrel, dispute, debate, argumentation, struggle, vengeance</p> <p>Reversed: Arrogance, pride, vanity, false glory, pomp, ostentation, audacity, temerity, presumption, insult, affront</p>',
     T00: '<p class="card-title">00. Folie</p> <p>Upright: Madness, insanity, insane, eccentricity, enthusiasm, unreasonableness, blindness, ignorance, senseless, confusion, wandering, drunkenness, delirium, fever, frenzy, rage, passion, fury, transport, innocent, simple, silly</p> <p>Reversed: Imbecility, ineptitude, insouciance, stupidity, imprudence, negligence, absence, absent-mindedness, apathy, nullity, empty, nothing, useless</p>'
-}
+};
+
