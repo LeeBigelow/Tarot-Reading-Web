@@ -1,4 +1,14 @@
 /* vim: set sw=2 sts=2 : */
+div.content {
+  display: block;
+  /* layout-container + border + margin */
+  width: calc((var(--img-width) + 10px) * 6 + 100px + 140px);
+  /* margin-top: 110px; */
+  margin-top: 50px;
+  margin-bottom: 70px;
+}
+
+
 #layout-container {
   justify-content: space-evenly;  
   width: calc( ( var(--img-width) + 10px ) * 6 );

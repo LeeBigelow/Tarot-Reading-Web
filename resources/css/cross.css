@@ -3,6 +3,14 @@
   --card-vgap: 40px;
 }
 
+div.content {
+  display: block;
+  width: calc((var(--img-width) + 10px ) * 5 + 100px + 140px);
+  /* margin-top: 70px; */
+  margin-top: 10px;
+  margin-bottom: 70px;
+}
+
 #layout-container {
   position: relative;
   justify-content: space-between;
