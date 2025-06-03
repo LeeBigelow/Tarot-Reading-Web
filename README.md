@@ -1,7 +1,7 @@
 # Tarot-Reading-Web
 Simple Tarot reading with vintage card images using HTML, CSS, JavaScript.
 
-You can use the online live version here: [Tarot-Read-Web](https://leebigelow.github.io/Tarot-Reading-Web)
+You can use the online live version here: [Tarot-Reading-Web](https://leebigelow.github.io/Tarot-Reading-Web)
 
 I had been exploring the online museum archives of old Tarot cards and wanted to try cleaning up the images with ImageMagick and GIMP.  Then I decided to put the cleaned images to use and made this little Tarot reading program.
 
