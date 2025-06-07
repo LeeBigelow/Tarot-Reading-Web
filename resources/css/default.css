@@ -107,6 +107,7 @@ h1 {
   border-radius: 10px;
 }
 
+.link-button,
 .dropdown {
   position: relative;
   display: inline-block;
@@ -115,6 +116,7 @@ h1 {
   font-size: 14pt;
 }
 
+.link-button:hover,
 .dropdown:hover {
   background-color: #4b4a53;
 }
