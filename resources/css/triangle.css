@@ -1,0 +1,46 @@
+/* vim: set sw=2 sts=2 : */
+div.content {
+  display: block;
+  width: calc((var(--img-width) + 10px ) * 4 + 100px + 140px);
+  margin-top: 10px;
+  margin-bottom: 70px;
+}
+
+#layout-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: calc( var(--img-width) * 4 + 100px);
+  height: calc( var(--img-height) * 4 + 100px );
+  margin-left: auto;
+  margin-right: auto;
+  gap: 10px;
+}
+
+h1 {
+  width: calc( var(--img-width) * 5 + 50px + 100px);
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
+
+.card-inner.is-flipped {
+  transform: scale(180%) rotateY(180deg);
+}
+
+/* position deck */
+.card-backing {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  margin: 0px; 
+}
+
+.card {
+  margin: 0;
+}
