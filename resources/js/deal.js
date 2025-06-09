@@ -146,6 +146,9 @@ function changeDeck(deckDir) {
 changeDeck(getRandomDeck());
 
 switch (document.title.split(' - ')[1]) {
+    case 'Ten Card Triangle':
+        var numCards = 10;
+        break;
     case 'Celtic Cross':
         var numCards = 10;
         break;
@@ -153,7 +156,7 @@ switch (document.title.split(' - ')[1]) {
         var numCards = 5;
         break;
     default:
-        var numCards = 1;
+        var numCards = 10;
         break;
 };
 const selectedCardCodes = getRandomCards(numCards);

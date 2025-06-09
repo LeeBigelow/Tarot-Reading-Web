@@ -117,7 +117,7 @@
         border-radius: 10px;
       }
     
-      .link-button {
+      .dropdown {
         position: relative;
         display: inline-block;
         background-color: #2b2a33;
@@ -125,12 +125,41 @@
         font-size: 14pt;
       }
 
-      .link-button:hover {
+      .dropdown:hover {
         background-color: #4b4a53;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        margin: 0px -10px;
+        border: 3px solid #1b1a23;
+        background-color: #2b2a33; 
+        width: 15em;
+        font-size: 12pt;
+        z-index: 1;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      .dropdown-content div {
+        padding: 10px;
       }
 
       a {
         color: lightgray;
         text-decoration: none;
+      }
+
+
+      .dropdown-content div:hover {
+        background-color: lightgray;
+        color: #2b2a33;
+        & a {
+          color: #2b2a33;
+          text-decoration: none;
+        }
       }
       /* END default.css */
