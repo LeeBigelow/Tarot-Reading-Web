@@ -1,0 +1,5 @@
+# ignore large fully embedded files, can create when needed
+*-embedded.html
+
+# ignore deal.js backups when updating decks
+*.bak

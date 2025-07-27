@@ -1,11 +1,14 @@
-const imageDir = 'resources/images/';
-const dropdownContent = document.getElementById('dropdown-content');
 const deckTitle = document.getElementById('deck-title');
 const backingImage = document.getElementById('backing-image');
 var cardNum = 1;
 
+// EMBEDDED IGNORE START 
+var selectedDeck = "2010_Yoav_Ben-Dov";
+const imageDir = 'resources/images/';
+const dropdownDeckList = document.getElementById('deck-list');
+
 const cardDecks = [
-// DECKS START  
+    // DECKS START  
     '1709_Pierre_Madenié',
     '1760_Nicolas_Conver',
     '1789_Etteilla_Livre_de_Thot',
@@ -13,18 +16,32 @@ const cardDecks = [
     '1880_Avondo_Dellarocca',
     '1909_Rider-Waite-Smith',
     '2010_Yoav_Ben-Dov',
-// DECKS END
+    // DECKS END
 ];
 
-// Add decks to dropdown menu
+// Add decks to dropdown list
 cardDecks.forEach(deckDir => {
     const deckDiv = document.createElement('div');
     deckDiv.addEventListener('click', function () {
        changeDeck(deckDir);
     });
     deckDiv.innerHTML = deckDir.replace(/_/g,' ');
-    dropdownContent.appendChild(deckDiv);
+    dropdownDeckList.appendChild(deckDiv);
 });
+
+function getRandomDeck() {
+    shuffleArray(cardDecks);
+    return cardDecks[0];
+};
+
+function changeDeck(deckDir) {
+    selectedDeck = deckDir;
+    deckTitle.innerHTML = selectedDeck.replace(/_/g,' ');
+
+    backingImage.src = imageDir + selectedDeck + '/XBA.webp';
+    backingImage.alt = backingImage.src;
+}
+// EMBEDDED IGNORE END
 
 const cardCodes = [
     'B01', 'B02', 'B03', 'B04', 'B05', 'B06', 'B07',
@@ -51,11 +68,6 @@ function shuffleArray(array) {
 function getRandomCards(count) {
     shuffleArray(cardCodes);
     return cardCodes.slice(0, count);
-};
-
-function getRandomDeck() {
-    shuffleArray(cardDecks);
-    return cardDecks[0];
 };
 
 // Animate the card deal
@@ -114,7 +126,7 @@ function showCard() {
     cardBackDiv.appendChild(imageBack);
 
     switch (selectedDeck) {
-// MEANINGS START
+        // MEANINGS START
         case '1909_Rider-Waite-Smith':
             cardBackDiv.innerHTML += waiteMeanings[cardCode];
             cardBackDiv.innerHTML += '<p class="author">-- A. E. Waite</p>';
@@ -131,6 +143,7 @@ function showCard() {
             cardBackDiv.innerHTML += mcelroyMeanings[cardCode];
             cardBackDiv.innerHTML += '<p class="author">-- Mark McElroy</p>';
             break;
+        // MEANINGS END
     }
 
     cardInnerDiv.appendChild(cardFrontDiv);
@@ -140,15 +153,8 @@ function showCard() {
     cardNum++;
 };
 
-function changeDeck(deckDir) {
-    selectedDeck = deckDir;
-    deckTitle.innerHTML = selectedDeck.replace(/_/g,' ');
-
-    backingImage.src = imageDir + selectedDeck + '/XBA.webp';
-    backingImage.alt = backingImage.src;
-}
-
 const numCards = Number(document.title.split(' - ')[2]);
 const selectedCardCodes = getRandomCards(numCards);
-changeDeck(getRandomDeck());
 backingImage.addEventListener('click', function () { showCard(); } );
+
+changeDeck(getRandomDeck());

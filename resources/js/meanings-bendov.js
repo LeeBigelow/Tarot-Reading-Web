@@ -1,3 +1,4 @@
+// var meaningsAuthor = "Yoav Ben-Dov"
 const bendovMeanings = {
     B01: '<p class="card-title">Ace of Wands</p><p>Creative momentum. Active sexuality. Strong impulses, energy and drive. Life force. Beginning of growth. Dispersing one’s efforts in different directions.</p><p>Inverse: Lack of energy, restriction, repressed sexuality, a creative block.</p>',
     B02: '<p class="card-title">2 of Wands</p><p>Crossroads. Several options or ways to choose from. Every course offers benefits. A brief encounter with someone going his own way. Blocking an opponent’s line of advance.</p><p>Inverse: Similar</p>',
