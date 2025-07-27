@@ -1,12 +1,19 @@
 #!/bin/bash
-srcdir="../"
+for prog in cwebp base64; do
+    if ! command -v $prog; then
+        echo "Needed program not found: $prog"
+        exit
+    fi
+done
+srcdir=".."
+outdir="."
 layout="celtic-cross"
 deck="2010"
 meanings="mcelroy"
 
 usage() {
     cat << EOF
-Usage: ${0##*/} [-s SOURCE_DIR ] [-l LAYOUT] [-d DECK] [-m MEANINGS]
+Usage: ${0##*/} [-d DECK] [-l LAYOUT] [-m MEANINGS] [-o OUTPUT_DIR] [-s SOURCE_DIR ] 
     At least one option must be specified, eg -d 1880
     Will build a fully embedded html file containing specified 
     layout, deck images, and meanings.
@@ -35,18 +42,20 @@ EOF
 
 [[ "$#" -eq 0 ]] && usage
 
-while getopts ":s:l:d:m:" opt; do
+while getopts ":d:l:m:o:s:" opt; do
     case "$opt" in
-        s) srcdir="$OPTARG" ;;
-        l) layout="$OPTARG" ;;
         d) deck="$OPTARG" ;;
+        l) layout="$OPTARG" ;;
         m) meanings="$OPTARG" ;;
+        o) outdir="$OPTARG" ;;
+        s) srcdir="$OPTARG" ;;
         *) usage;;
     esac
 done
 shift $(( OPTIND - 1 ))
 
 echo "Source Dir: $srcdir"
+echo "Output Dir: $outdir"
 echo "Layout: $layout"
 echo "Deck: $deck"
 echo "Meanings: $meanings"
@@ -62,14 +71,20 @@ for f in $layout_file $default_css_file $layout_css_file $meanings_file $deal_fi
         exit
     fi
 done
+
 deck_name=$(find "$srcdir/resources/images/" -type d -name "$deck*" -printf "%f")
 if [[ -z "$deck_name" ]]; then
     echo "Error, not a valid deck year: $deck"
     exit
 fi
-deck_dir="$srcdir/resources/images/$deck_name"
 
-embedded_file="$layout-$deck_name-$meanings-embedded.html"
+deck_dir="$srcdir/resources/images/$deck_name"
+if [[ ! -d "$outdir" ]]; then
+    echo "Not a directory: $outdir"
+    exit
+fi
+
+embedded_file="$outdir/$layout-$deck_name-$meanings-embedded.html"
 if [[ -e "$embedded_file" ]]; then
     echo "Error, file already exists: $embedded_file"
     exit
