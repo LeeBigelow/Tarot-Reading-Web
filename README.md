@@ -33,7 +33,7 @@ You can use the [online version](https://LeeBigelow.github.io/Tarot-Reading-Web)
 
 The folder also contains some screenshots if you want to check out the decks in various layouts.
 
-Note: This git repository doesn't contain any of the embedded html files but the script to create them is included (tools/make-embedded.sh).
+Note: the script I used to create the embedded html is included (tools/make-embedded.sh).
 
 ## The Modified Card Images
 
