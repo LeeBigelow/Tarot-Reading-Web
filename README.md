@@ -35,7 +35,7 @@ The folder also contains some screenshots if you want to check out the decks in 
 
 Note: the script I used to create the embedded html is included (tools/make-embedded.sh).
 
-## The Modified Card Images
+## The Card Images
 
 I've included some notes on how I modified the images with Imagemagick and Gimp for those interested.
 
