@@ -23,19 +23,23 @@ cd Tarot-Reading-Web
 firefox celtic-cross.html
 ```
 
-Nothing fancy. So far just a Celtic-Cross or Five-Card-Story layout. Click on the deck to deal out the cards. Click on a card to flip and get some interpretation info. The top left has "Decks" and "Layouts" menus. You can switch decks at any time and have cards from different decks in the same layout.
+Nothing fancy. So far just Celtic-Cross, Five-Card-Story, or Ten-Card-Triangle layouts. Click on the deck to deal out the cards. Click on a card to flip and get some interpretation info. The top left has "Decks" and "Layouts" menus. You can switch decks at any time and have cards from different decks in the same layout.
 
 ## Embedded versions for phones
 
-Unfortunately the full version won't work on your phone. Phone browsers don't like reading local files. Instead I've made some static versions where the css, javascript, and card images (compressed and base64 encoded) are all embedded in the html. They work on my phone and hopefully will work on yours. Here's a Google Drive folder with a variety of embedded versions:
+You can use the [online version](https://LeeBigelow.github.io/Tarot-Reading-Web) on your phone or tablet but unfortunately you can't download and run it off-line on your device. Phone and tablet browsers don't like reading external javascript and css files. Instead I've made some embedded versions where the css, javascript, and card images (compressed and base64 encoded) are all rolled into one html. Each "layout & deck" combo is given it's own separate all-in-one html file that your device's browser will be able to run. Download one of the embedded html files (which ever "layout & deck" combo you like) onto your device then open it with your device's browser. They work on my phone and hopefully will work on yours. Here's a Google Drive folder with a variety of embedded versions:
 
 [Folder of Completely Embedded Versions (for the phone)](https://drive.google.com/drive/folders/1lbfcxlHbkPkIrWJ4lBdQcY3va5lfuAQf?usp=sharing)
 
-You should be able to just download one of the fully embedded html files and open it in a browser. The folder also contains screenshots if you want to check out the decks in various layouts.
+The folder also contains some screenshots if you want to check out the decks in various layouts.
 
-I've also included some notes on how I modified the images if you're keen.
+Note: This git repository doesn't contain any of the embedded html files but the script to create them is included (tools/make-embedded.sh).
 
-If you just want to browse the deck images here's a Google Drive folder of the deck images:
+## The Modified Card Images
+
+I've included some notes on how I modified the images with Imagemagick and Gimp for those interested.
+
+If you just want to browse through the card images here's a Google Drive folder of the decks:
 
 [Tarot Decks on Google Drive](https://drive.google.com/drive/folders/1u3_QSi-YJDf84ZH5FjdO13Tc_AFnhNWU?usp=drive_link)
 
