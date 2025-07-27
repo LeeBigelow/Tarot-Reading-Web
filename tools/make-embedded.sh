@@ -7,6 +7,9 @@ meanings="mcelroy"
 usage() {
     cat << EOF
 Usage: ${0##*/} [-s SOURCE_DIR ] [-l LAYOUT] [-d DECK] [-m MEANINGS]
+    At least one option must be specified, eg -d 1880
+    Will build a fully embedded html file containing specified 
+    layout, deck images, and meanings.
 
 ## Defaults
 Source Directory: $srcdir
@@ -30,6 +33,8 @@ EOF
     exit
 }
 
+[[ "$#" -eq 0 ]] && usage
+
 while getopts ":s:l:d:m:" opt; do
     case "$opt" in
         s) srcdir="$OPTARG" ;;
@@ -46,14 +51,29 @@ echo "Layout: $layout"
 echo "Deck: $deck"
 echo "Meanings: $meanings"
 
-embedded_file="$layout-embedded.html"
 layout_file="$srcdir/$layout.html"
 default_css_file="$srcdir/resources/css/default.css" 
 layout_css_file="$srcdir/resources/css/${layout##*-}.css"
 meanings_file="$srcdir/resources/js/meanings-$meanings.js"
 deal_file="$srcdir/resources/js/deal.js"
+for f in $layout_file $default_css_file $layout_css_file $meanings_file $deal_file; do
+    if [[ ! -e "$f" ]]; then
+        echo "Error, file doesn't exist: $f"
+        exit
+    fi
+done
 deck_name=$(find "$srcdir/resources/images/" -type d -name "$deck*" -printf "%f")
+if [[ -z "$deck_name" ]]; then
+    echo "Error, not a valid deck year: $deck"
+    exit
+fi
 deck_dir="$srcdir/resources/images/$deck_name"
+
+embedded_file="$layout-$deck_name-$meanings-embedded.html"
+if [[ -e "$embedded_file" ]]; then
+    echo "Error, file already exists: $embedded_file"
+    exit
+fi
 
 sed '/<title>/q' "$layout_file" > "$embedded_file"
 printf '    <style>\n'  >> "$embedded_file"
