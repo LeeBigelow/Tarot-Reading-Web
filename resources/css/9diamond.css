@@ -11,7 +11,7 @@ div.content {
 	flex-direction: column;
 	justify-content: center;
 	width: calc( var(--img-width) * 4 + 100px);
-	height: calc( var(--img-height) * 4 + 100px );
+	height: calc( var(--img-height) * 5 + 100px );
 	margin-left: auto;
 	margin-right: auto;
 	gap: 10px;

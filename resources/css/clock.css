@@ -1,0 +1,106 @@
+div.content {
+	display: block;
+	width: calc((var(--img-width) + 10px ) * 6 + 100px + 140px);
+	margin-top: 10px;
+	margin-bottom: 70px;
+}
+
+#layout-container {
+	position: relative;
+	justify-content: right;
+	width: calc( var(--img-width) * 5 + 250px);
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+h1 {
+	width: calc( var(--img-width) * 5 + 50px + 100px);
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#col-3 {
+	margin-right: 150px;
+}
+
+#col-2 {
+	justify-content: space-between;
+	width: calc( var(--img-width) );
+	margin: -30px;
+	gap: 80px;
+}
+
+#col-1,
+#col-3 {
+	width: hypot( var(--img-height), var(--img-width) );
+}
+
+#col-1 .card,
+#col-3 .card {
+	margin: -30px;
+}
+
+.card-inner.is-flipped {
+	transform: scale(180%) rotateY(180deg);
+}
+
+#card-2 .card-inner.is-flipped {
+	transform: scale(180%) rotateY(180deg) rotate(45deg);
+}
+
+#card-3 .card-inner.is-flipped {
+	transform: scale(180%) rotateY(180deg) rotate(90deg);
+}
+#card-4 .card-inner.is-flipped {
+	transform: scale(180%) rotateY(180deg) rotate(135deg);
+}
+#card-5 .card-inner.is-flipped {
+	transform: scale(180%) rotateY(180deg) rotate(180deg);
+}
+#card-6 .card-inner.is-flipped {
+	transform: scale(180%) rotateY(180deg) rotate(225deg);
+}
+#card-7 .card-inner.is-flipped {
+	transform: scale(180%) rotateY(180deg) rotate(270deg);
+}
+#card-8 .card-inner.is-flipped {
+	transform: scale(180%) rotateY(180deg) rotate(315deg);
+}
+
+/* position deck */
+.card-backing {
+	position: absolute;
+	top: 20px;
+	left: 20px;
+	margin: 0px;
+}
+
+#card-2 {
+	transform: rotate(45deg);
+}
+#card-3 {
+	transform: rotate(90deg) translate( 0, calc(-1*var(--img-height)/3 - 20px));
+}
+#card-4 {
+	transform: rotate(135deg);
+}
+#card-5 {
+	transform: rotate(180deg);
+}
+#card-6 {
+	transform: rotate(225deg);
+}
+#card-7 {
+	transform: rotate(270deg) translate(0, calc(-1*var(--img-height)/3 - 20px));
+}
+#card-8 {
+	transform: rotate(315deg);
+}
+
