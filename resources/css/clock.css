@@ -33,7 +33,7 @@ h1 {
 #col-2 {
 	justify-content: space-between;
 	width: calc( var(--img-width) );
-	margin: -30px;
+	margin: 0 -35px;
 	gap: 80px;
 }
 
@@ -86,7 +86,7 @@ h1 {
 	transform: rotate(45deg);
 }
 #card-3 {
-	transform: rotate(90deg) translate( 0, calc(-1*var(--img-height)/3 - 20px));
+	transform: rotate(90deg) translate( 0, calc(-1*var(--img-height)/3 - 5px));
 }
 #card-4 {
 	transform: rotate(135deg);
@@ -98,7 +98,7 @@ h1 {
 	transform: rotate(-135deg);
 }
 #card-7 {
-	transform: rotate(-90deg) translate(0, calc(-1*var(--img-height)/3 - 20px));
+	transform: rotate(-90deg) translate(0, calc(-1*var(--img-height)/3 - 5px));
 }
 #card-8 {
 	transform: rotate(-45deg);
