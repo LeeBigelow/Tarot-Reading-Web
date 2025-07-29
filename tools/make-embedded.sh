@@ -25,16 +25,16 @@ Deck: $deck
 Meanings: $meanings
 
 EOF
-	layout_opts=$(find "$srcdir" -maxdepth 1 -type f -name "*.html" -printf "%f\n"|sort)
+	layout_opts=$(find "$srcdir" -maxdepth 1 -type f -name "*.html" -printf "%f\n" \
+		| sed 's/\.html$//' \
+		| sort)
 	layout_opts="${layout_opts//.html/}"
 	printf "## -l Layout Options:\n$layout_opts\n\n"
 
 	deck_opts=$(find "$srcdir"/resources/images/ -maxdepth 1 -mindepth 1 -type d -printf "%f\n" | sort)
 	printf "## -d Deck Options (Just use the year):\n$deck_opts\n\n"
 
-	meanings_opts=$(find "$srcdir"/resources/js/ -type f -name "meanings-*.js" -printf "%f\n")
-	meanings_opts="${meanings_opts//meanings-/}"
-	meanings_opts="${meanings_opts//.js/}"
+	meanings_opts=$(find "$srcdir"/resources/js/ -type f -name "meanings-*.js" -printf "%f\n" | sed 's/meanings-//; s/\.js//')
 	printf "## -m Meanings Options:\n$meanings_opts\n\n"
 
 	exit
