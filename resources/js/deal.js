@@ -14,7 +14,9 @@ const cardDecks = [
 	'1835_Gumppenberg_Dellarocca',
 	'1880_Avondo_Dellarocca',
 	'1909_Rider-Waite-Smith',
+	'1909_Rider-Waite-Smith_(McElroy)',
 	'2010_Yoav_Ben-Dov',
+	'2010_Yoav_Ben-Dov_(McElroy)',
 	// DECKS END
 ];
 
@@ -118,23 +120,42 @@ function showCard() {
 	imageFront.alt = imageFront.src;
 	imageBack.src = imageFront.src;
 	imageBack.alt = imageFront.src;
-	if (Math.random() < 0.5 ) {
+	if (Math.random() < 0.5) {
 		imageFront.style.transform = "rotate(180deg)";
 	}
 	cardFrontDiv.appendChild(imageFront);
 	cardBackDiv.appendChild(imageBack);
 
-	switch (selectedDeck) {
+	switch (true) {
 		// MEANINGS START
-		case '1909_Rider-Waite-Smith':
+		case selectedDeck.includes('(McElroy)'):
+			// McElroy meanings with Waite deck switch Justice and Strength cards
+			if ( !(selectedDeck.includes('Waite')) 
+				|| (cardCode != 'T08' && cardCode != 'T11') ) {
+				cardBackDiv.innerHTML += mcelroyMeanings[cardCode];
+			} else if (cardCode == 'T08') {
+				// only here if Waite and T08
+				cardCode='T11';
+				cardBackDiv.innerHTML += mcelroyMeanings[cardCode].replace('11','8');
+			} else if (cardCode == 'T11') {
+				// only here if Waite and T11
+				cardCode='T08';
+				cardBackDiv.innerHTML += mcelroyMeanings[cardCode].replace('8','11');
+			} else {
+				// sanity check
+				console.log(selectedDeck+" "+cardCode);
+			}
+			cardBackDiv.innerHTML += '<p class="author">-- Mark McElroy</p>';
+			break;
+		case selectedDeck.includes('Waite'):
 			cardBackDiv.innerHTML += waiteMeanings[cardCode];
 			cardBackDiv.innerHTML += '<p class="author">-- A. E. Waite</p>';
 			break;
-		case '1789_Etteilla_Livre_de_Thot':
+		case selectedDeck.includes('Etteilla'):
 			cardBackDiv.innerHTML += etteillaMeanings[cardCode];
 			cardBackDiv.innerHTML += '<p class="author">-- Etteilla</p>';
 			break;
-		case '2010_Yoav_Ben-Dov':
+		case selectedDeck.includes('Ben-Dov'):
 			cardBackDiv.innerHTML += bendovMeanings[cardCode];
 			cardBackDiv.innerHTML += '<p class="author">-- Yoav Ben-Dov</p>';
 			break;

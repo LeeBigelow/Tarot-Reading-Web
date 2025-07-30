@@ -1,11 +1,14 @@
 #!/bin/bash
-# Note cardDeck end ]; needs to be first one in file
+# Note cardDeck end ]; needs to be first one in file/
+imgd="../resources/images/"
 oldf="../resources/js/deal.js"
-newf="../resources/js/new-deal.js"
+newf="new-deal.js"
 sed -e '/DECKS START/q' $oldf > $newf
-echo "$(ls ../resources/images/)" | sed "s/^/    '/; s/$/',/" >> $newf
+find $imgd -mindepth 1 -maxdepth 1 \( -type d -o -type l \) -printf "%f\n" \
+	| sed "s/^/\t'/; s/$/',/" \
+	| sort >> $newf
 sed -n '/DECKS END/,$p' $oldf >> $newf
-mv $oldf $oldf.$EPOCHSECONDS.bak
+mv $oldf $newf.$EPOCHSECONDS.bak
 mv $newf $oldf
 
 echo "UPDATED..."
