@@ -1,0 +1,93 @@
+cross_title = 'Tarot Reading Web - Cross - 10';
+
+cross_html = `
+	<h1>Cross</h1>
+	<div id="layout-container">
+		<div class="card card-deck">
+			<img id="deck-image"/>
+			<div id="deck-title"></div>
+		</div>
+		<div id="col-1" class="column">
+			<div id="card-5" class="card"></div>
+		</div>
+		<div id="col-2" class="column">
+			<div id="card-3" class="card"></div>
+			<div id="card-1" class="card"></div>
+			<div id="card-2" class="card"></div>
+			<div id="card-4" class="card"></div>
+		</div>
+		<div id="col-3" class="column">
+			<div id="card-6" class="card"></div>
+		</div>
+		<div id="col-4" class="column">
+			<div id="card-10" class="card"></div>
+			<div id="card-9" class="card"></div>
+			<div id="card-8" class="card"></div>
+			<div id="card-7" class="card"></div>
+		</div>
+	</div>
+`;
+
+cross_css = `
+	:root {
+		--card-vgap: 40px;
+	}
+	
+	div.content {
+		display: block;
+		width: calc((var(--img-width) + 10px ) * 5 + 100px + 140px);
+		/* margin-top: 70px; */
+		margin-top: 10px;
+		margin-bottom: 70px;
+	}
+	
+	#layout-container {
+		position: relative;
+		justify-content: space-between;
+		width: calc( var(--img-width) * 5 + 50px);
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	h1 {
+		width: calc( var(--img-width) * 5 + 50px + 100px);
+	}
+	
+	.column {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		width: calc(var(--img-width));
+		gap: var(--card-vgap);
+	}
+	
+	.card-inner.is-flipped {
+		transform: scale(180%) rotateY(180deg);
+	}
+	
+	#card-2 .card-inner.is-flipped {
+		transform: scale(180%) rotate(-90deg) rotateY(180deg);
+	}
+	
+	/* position deck */
+	.card-deck {
+		position: absolute;
+		top: 20px;
+		left: 20px;
+		margin: 0px;
+	}
+	
+	/* turn and lay 2nd card over first */
+	#card-2 {
+		margin-top: calc(-1 * (((var(--img-height) + var(--img-width)) / 2) + var(--card-vgap)) ) ;
+		margin-bottom: calc(-1 * (var(--img-height) - var(--img-width)) / 2);
+		transform: rotate(90deg);
+	}
+	
+	/* adjust column width for turned card */
+	#col-2 {
+		width: calc(var(--img-height));
+	}
+`;
+

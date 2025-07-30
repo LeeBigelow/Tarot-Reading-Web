@@ -33,7 +33,7 @@ h1 {
 }
 
 /* position deck */
-.card-backing {
+.card-deck {
 	position: absolute;
 	top: 20px;
 	left: 20px;

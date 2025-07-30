@@ -62,7 +62,7 @@ h1 {
 	backface-visibility: hidden;
 }
 
-.card-backing img,
+.card-deck img,
 .card-front img {
 	display: block;
 	height: var(--img-height);
@@ -95,12 +95,12 @@ h1 {
 	}
 }
 
-.card-backing:hover {
+.card-deck:hover {
 	z-index: 0;
 }
 
 .card-front img,
-.card-backing img,
+.card-deck img,
 .card-back {
 	border: 1px solid black;
 	border-radius: 10px;

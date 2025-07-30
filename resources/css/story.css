@@ -7,7 +7,6 @@ div.content {
 	margin-bottom: 70px;
 }
 
-
 #layout-container {
 	justify-content: space-evenly;
 	width: calc( ( var(--img-width) + 10px ) * 6 );

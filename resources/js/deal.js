@@ -1,10 +1,41 @@
-const deckTitle = document.getElementById('deck-title');
-const backingImage = document.getElementById('backing-image');
-var cardNum = 1;
+const layoutStyle = document.getElementById('layout-css');
+const layoutHtml = document.getElementById('layout-html');
+
+// global vars
+let selectedDeck;
+let selectedLayout;
+let selectedCardCodes;
+let numCards;
+let cardNum;
+let deckTitle;
+let deckImage;
+
+const layouts = [
+	'Clock',
+	'Cross',
+	'Diamond',
+	'Story',
+	'Triangle',
+];
+
+const layoutList = document.getElementById('layout-list');
+layouts.forEach(layout => {
+	const layoutDiv = document.createElement('div');
+	layoutDiv.addEventListener('click', function () {
+		layoutInit(layout.toLowerCase(),selectedDeck);
+	});
+	layoutDiv.innerHTML = layout;
+	layoutList.appendChild(layoutDiv);
+});
+
+function getRandomLayout() {
+	shuffleArray(layouts);
+	return layouts[0].toLowerCase();
+};
+
+
 // EMBEDDED IGNORE START
-var selectedDeck = "2010_Yoav_Ben-Dov";
 const imageDir = 'resources/images/';
-const dropdownDeckList = document.getElementById('deck-list');
 
 const cardDecks = [
 	// DECKS START
@@ -21,13 +52,14 @@ const cardDecks = [
 ];
 
 // Add decks to dropdown list
+const deckList = document.getElementById('deck-list');
 cardDecks.forEach(deckDir => {
 	const deckDiv = document.createElement('div');
 	deckDiv.addEventListener('click', function () {
 		changeDeck(deckDir);
 	});
 	deckDiv.innerHTML = deckDir.replace(/_/g,' ');
-	dropdownDeckList.appendChild(deckDiv);
+	deckList.appendChild(deckDiv);
 });
 
 function getRandomDeck() {
@@ -39,8 +71,8 @@ function changeDeck(deckDir) {
 	selectedDeck = deckDir;
 	deckTitle.innerHTML = selectedDeck.replace(/_/g,' ');
 
-	backingImage.src = imageDir + selectedDeck + '/XBA.webp';
-	backingImage.alt = backingImage.src;
+	deckImage.src = imageDir + selectedDeck + '/XBA.webp';
+	deckImage.alt = deckImage.src;
 }
 // EMBEDDED IGNORE END
 
@@ -74,10 +106,10 @@ function getRandomCards(count) {
 // Animate the card deal
 // Shift card from final position to deck then animate back
 function dealCard(cardDiv) {
-	const backingRect = backingImage.getBoundingClientRect();
+	const deckRect = deckImage.getBoundingClientRect();
 	const cardRect = cardDiv.getBoundingClientRect();
-	var xdiff = backingRect.left - cardRect.left;
-	var ydiff = backingRect.top - cardRect.top;
+	let xdiff = deckRect.left - cardRect.left;
+	let ydiff = deckRect.top - cardRect.top;
 	cardDiv.animate([{
 		transformOrigin: 'top left',
 		transform: `translate(${xdiff}px, ${ydiff}px)`
@@ -93,13 +125,13 @@ function dealCard(cardDiv) {
 };
 
 function showCard() {
-	if (cardNum == numCards+2) { location.reload(); };
+	if (cardNum == numCards+2) { layoutInit(selectedLayout,selectedDeck); };
 	if (cardNum == numCards+1) {
-		backingImage.style.opacity = "0.6";
+		deckImage.style.opacity = "0.6";
 		cardNum++;
 		return;
 	};
-	var cardCode = selectedCardCodes[cardNum-1];
+	let cardCode = selectedCardCodes[cardNum-1];
 	const cardDiv = document.getElementById('card-'+cardNum);
 
 	const cardInnerDiv = document.createElement('div');
@@ -173,8 +205,21 @@ function showCard() {
 	cardNum++;
 };
 
-const numCards = Number(document.title.split(' - ')[2]);
-const selectedCardCodes = getRandomCards(numCards);
-backingImage.addEventListener('click', function () { showCard(); } );
+function layoutInit (layout, deck) {
+	selectedDeck = deck;
+	selectedLayout = layout;
+	document.title = window[selectedLayout+'_title'];
+	layoutStyle.innerHTML = window[selectedLayout+'_css'];
+	layoutHtml.innerHTML = window[selectedLayout+'_html'];
 
-changeDeck(getRandomDeck());
+	deckTitle = document.getElementById('deck-title');
+	deckImage = document.getElementById('deck-image');
+	cardNum = 1;
+	numCards = Number(document.title.split(' - ')[2]);
+
+	selectedCardCodes = getRandomCards(numCards);
+	deckImage.addEventListener('click', function () { showCard(); } );
+	changeDeck(deck)
+};
+
+layoutInit(getRandomLayout(), getRandomDeck());
