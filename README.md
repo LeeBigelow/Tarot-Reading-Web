@@ -29,7 +29,7 @@ Nothing fancy. A few simple layouts. Click on the deck to deal out the cards. Cl
 
 You can use the [online version](https://LeeBigelow.github.io/Tarot-Reading-Web) on your phone or tablet but unfortunately you can't download and run it off-line on your device. The problem is that phone and tablet browsers don't like reading external javascript and css files. To solve this I've made some embedded all-in-one html versions that you can download. Each file contains all the card images for one deck type (compressed and base64 encoded), one set of "meanings", and all the layouts.
 
-Just download one of the embedded html files from the Google Drive folder below (which ever "Deck & Meanings" combo you like) and open it with your device's browser. They work on my phone and hopefully will work on yours.
+Just download one of the embedded html files from the Google Drive folder below (whichever "Deck & Meanings" combo you like) and open it with your device's browser. They work on my phone and hopefully will work on yours.
 
 [Folder of Completely Embedded Versions](https://drive.google.com/drive/folders/1lbfcxlHbkPkIrWJ4lBdQcY3va5lfuAQf?usp=sharing) for off-line phone or tablet use.
 

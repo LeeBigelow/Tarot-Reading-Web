@@ -120,12 +120,15 @@ function dealCard(cardDiv) {
 		transformOrigin: 'top left',
 		transform: 'none'
 	}], {
-		duration: 800,
+		duration: 600,
 	});
 };
 
 function showCard() {
-	if (cardNum == numCards+2) { layoutInit(selectedLayout,selectedDeck); };
+	if (cardNum == numCards+2) { 
+		layoutInit(selectedLayout,selectedDeck);
+		return
+	};
 	if (cardNum == numCards+1) {
 		deckImage.style.opacity = "0.6";
 		cardNum++;
@@ -205,7 +208,7 @@ function showCard() {
 	cardNum++;
 };
 
-function layoutInit (layout, deck) {
+function layoutInit(layout, deck) {
 	selectedDeck = deck;
 	selectedLayout = layout;
 	document.title = window[selectedLayout+'_title'];
