@@ -23,7 +23,7 @@ cd Tarot-Reading-Web
 firefox index.html
 ```
 
-Nothing fancy. A few simple layouts. Click on the deck to deal out the cards. Click on a card to flip and get some interpretation info. The top left has "Decks" and "Layouts" menus. You can switch decks at any time and have cards from different decks in the same layout if that's way you roll.
+Nothing fancy. A few simple layouts. Click on the deck to deal out the cards. Click on a card to flip and get some interpretation info. The top left has "Decks" and "Layouts" menus. You can switch decks at any time and have cards from different decks in the same layout.
 
 ## Embedded versions for phones
 
