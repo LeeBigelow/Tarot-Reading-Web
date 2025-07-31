@@ -66,15 +66,15 @@ function getRandomDeck() {
 	shuffleArray(cardDecks);
 	return cardDecks[0];
 };
+// EMBEDDED IGNORE END
 
-function changeDeck(deckDir) {
-	selectedDeck = deckDir;
+function changeDeck(deck) {
+	selectedDeck = deck;
 	deckTitle.innerHTML = selectedDeck.replace(/_/g,' ');
 
 	deckImage.src = imageDir + selectedDeck + '/XBA.webp';
 	deckImage.alt = deckImage.src;
 }
-// EMBEDDED IGNORE END
 
 const cardCodes = [
 	'B01', 'B02', 'B03', 'B04', 'B05', 'B06', 'B07',

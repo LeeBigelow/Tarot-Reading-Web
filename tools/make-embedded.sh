@@ -7,30 +7,22 @@ for prog in cwebp base64; do
 done
 srcdir=".."
 outdir="."
-layout="celtic-cross"
 deck="2010"
 meanings="mcelroy"
 
 usage() {
 	cat << EOF
-Usage: ${0##*/} [-d DECK] [-l LAYOUT] [-m MEANINGS] [-o OUTPUT_DIR] [-s SOURCE_DIR ]
+Usage: ${0##*/} [-d DECK] [-m MEANINGS] [-o OUTPUT_DIR] [-s SOURCE_DIR ]
     At least one option must be specified, eg -d 1880
     Will build a fully embedded html file containing specified
     layout, deck images, and meanings.
 
 ## Defaults
 Source Directory: $srcdir
-Layout: $layout
 Deck: $deck
 Meanings: $meanings
 
 EOF
-	layout_opts=$(find "$srcdir" -maxdepth 1 -type f -name "*.html" -printf "%f\n" \
-		| sed 's/\.html$//' \
-		| sort)
-	layout_opts="${layout_opts//.html/}"
-	printf "## -l Layout Options:\n$layout_opts\n\n"
-
 	deck_opts=$(find "$srcdir"/resources/images/ -maxdepth 1 -mindepth 1 -type d -printf "%f\n" | sort)
 	printf "## -d Deck Options (Just use the year):\n$deck_opts\n\n"
 
@@ -45,7 +37,6 @@ EOF
 while getopts ":d:l:m:o:s:" opt; do
 	case "$opt" in
 		d) deck="$OPTARG" ;;
-		l) layout="$OPTARG" ;;
 		m) meanings="$OPTARG" ;;
 		o) outdir="$OPTARG" ;;
 		s) srcdir="$OPTARG" ;;
@@ -56,23 +47,27 @@ shift $(( OPTIND - 1 ))
 
 echo "Source Dir: $srcdir"
 echo "Output Dir: $outdir"
-echo "Layout: $layout"
 echo "Deck: $deck"
 echo "Meanings: $meanings"
 
-layout_file="$srcdir/$layout.html"
 default_css_file="$srcdir/resources/css/default.css"
-layout_css_file="$srcdir/resources/css/${layout##*-}.css"
 meanings_file="$srcdir/resources/js/meanings-$meanings.js"
 deal_file="$srcdir/resources/js/deal.js"
+index_file="$srcdir/index.html"
 
 # check for files
-for f in $layout_file $default_css_file $layout_css_file $meanings_file $deal_file; do
+for f in $index_file $default_css_file $meanings_file $deal_file; do
 	if [[ ! -e "$f" ]]; then
 		echo "Error, file doesn't exist: $f"
 		exit
 	fi
 done
+
+layout_files=$(find "$srcdir/resources/js/" -type f -name "layout-*.js") 
+if [[ -z "$layout_files" ]]; then
+	echo "Error, no layout-*.js files in $srcdir/resources/js"
+	exit
+fi
 
 deck_name=$(find "$srcdir/resources/images/" -type d -name "$deck*" -printf "%f")
 if [[ -z "$deck_name" ]]; then
@@ -86,7 +81,7 @@ if [[ ! -d "$outdir" ]]; then
 	exit
 fi
 
-embedded_file="$outdir/$layout-$deck_name-$meanings-embedded.html"
+embedded_file="$outdir/$deck_name-$meanings-embedded.html"
 if [[ -e "$embedded_file" ]]; then
 	echo "Error, file already exists: $embedded_file"
 	exit
@@ -111,26 +106,24 @@ if [[ ! -e "$b64_file" ]]; then
 	exit
 fi
 
-# Add style sheets to head
-sed '/<title>/q' "$layout_file" > "$embedded_file"
+# Add default style sheet to head
+sed '/<title>/q' "$index_file" > "$embedded_file"
 printf '\t\t<style>\n' >> "$embedded_file"
-printf '\n\t\t\t/* default.css */\n' >> "$embedded_file"
+printf '\t\t\t/* default.css */\n' >> "$embedded_file"
 sed 's/^/\t\t\t/' "$default_css_file" >> "$embedded_file"
-printf "\n\t\t\t/* ${layout##*-}.css */\n" >> "$embedded_file"
-sed 's/^/\t\t\t/' "$layout_css_file" >> "$embedded_file"
-cat << EOF >> "$embedded_file"
+printf '\t\t</style>\n' >> "$embedded_file"
 
-		</style>
-	</head>
-	<body>
-		<div class="content">
-EOF
-
-# Layout WITHOUT: deck menu, layout menu, and javascript sources
-sed -n '/EMBEDDED START/,/EMBEDDED END/p' "$layout_file" | head -n -1 >> "$embedded_file"
+sed -n -e '/DECKS MENU START/,/DECKS MENU END/d' \
+	-e '/<style/,/SCRIPTS START/p' "$index_file" >> "$embedded_file" 
 
 # Add Javascript files 
-printf '\t\t<script>\n\n' >> "$embedded_file"
+printf '\t\t<script>\n' >> "$embedded_file"
+
+# Add layout js files
+for layout_js in $layout_files; do
+	printf "\t\t\t// $layout_js\n" >> "$embedded_file"
+	sed 's/^/\t\t\t/' "$layout_js" >> "$embedded_file"
+done
 
 # Add b64 card Images
 sed 's/^/\t\t\t/' "$b64_file" >> "$embedded_file"
@@ -142,33 +135,49 @@ sed -e 's/\/\/ var meaningsAuthor/var meaningsAuthor/' \
 	-e 's/^/\t\t\t/' "$meanings_file" >> "$embedded_file"
 
 # Deal.js switch to base64 images
-printf "\n\t\t\t// deal.js\n" >> "$embedded_file"
+printf "\t\t\t// deal.js\n" >> "$embedded_file"
 sed -e '/EMBEDDED IGNORE START/,/EMBEDDED IGNORE END/d' \
 	-e 's/^/\t\t\t/' \
+	-e '/deckImage.src =/c\\t\t\t\tdeckImage.src = "data:image/webp;base64," + cardImages["XBA"];' \
 	-e '/imageFront.src =/c\\t\t\t\timageFront.src = "data:image/webp;base64," + cardImages[cardCode];' \
 	-e '/MEANINGS START/q' "$deal_file" >> "$embedded_file"
 
-# Deal.js only default meanings option
-cat << EOF | sed 's/^/\t\t\t/' >> "$embedded_file"
-		default:
+# Waite deck with McElroy meanings
+if [[ "$deck" == "1909" && "$meanings" == "mcelroy" ]]; then 
+	cat << EOF | sed 's/^/\t\t\t/' >> "$embedded_file"
+	default:
+		// Waite deck with McElroy meanings
+		// swap Justice and Strength cards
+		if (cardCode == 'T08') {
+			cardCode='T11';
+			cardBackDiv.innerHTML += cardMeanings[cardCode].replace('11','8');
+		} else if (cardCode == 'T11') {
+			cardCode='T08';
+			cardBackDiv.innerHTML += cardMeanings[cardCode].replace('8','11');
+		} else {
 			cardBackDiv.innerHTML += cardMeanings[cardCode];
-			cardBackDiv.innerHTML += '<p class="author">-- '+meaningsAuthor+'</p>';
-			break;
+		}
+		cardBackDiv.innerHTML += '<p class="author">-- '+meaningsAuthor+'</p>';
+		break;
 EOF
+# Deal.js selected meanings option
+else
+	cat << EOF | sed 's/^/\t\t\t/' >> "$embedded_file"
+	default:
+		cardBackDiv.innerHTML += cardMeanings[cardCode];
+		cardBackDiv.innerHTML += '<p class="author">-- '+meaningsAuthor+'</p>';
+		break;
+EOF
+fi
 
 # Deal.js tail end without setting random deck
 sed -n -e 's/^/\t\t\t/' \
-	-e '/changeDeck(getRandomDeck/d' \
+	-e '/layoutInit(getRandom/d' \
 	-e '/MEANINGS END/,$p' "$deal_file" >> "$embedded_file"
 
 # Deal.js set specified deck, close script and html
 cat << EOF >> "$embedded_file"
-			var selectedDeck = "$deck_name";
-			deckTitle.innerHTML = selectedDeck.replace(/_/g,' ');
-
-			backingImage.src = "data:image/webp;base64," + cardImages['XBA'];
-			backingImage.alt = backingImage.src;
-
+			layoutInit(getRandomLayout(), "$deck_name");
 		</script>
 	</body>
 </html>

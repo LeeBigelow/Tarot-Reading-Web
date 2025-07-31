@@ -27,15 +27,13 @@ Nothing fancy. So far just Celtic-Cross, Five-Card-Story, or Ten-Card-Triangle l
 
 ## Embedded versions for phones
 
-You can use the [online version](https://LeeBigelow.github.io/Tarot-Reading-Web) on your phone or tablet but unfortunately you can't download and run it off-line on your device. Phone and tablet browsers don't like reading external javascript and css files. Instead I've made some embedded versions where the css, javascript, and card images (compressed and base64 encoded) are all rolled into one html. Each "layout & deck" combo is given it's own separate all-in-one html file that your device's browser will be able to run. 
+You can use the [online version](https://LeeBigelow.github.io/Tarot-Reading-Web) on your phone or tablet but unfortunately you can't download and run it off-line on your device. The problem is that phone and tablet browsers don't like reading external javascript and css files. To solve this I've made some embedded all-in-one html versions that you can download. Each file contains all the card images for one deck type (compressed and base64 encoded), one set of "meanings", and all the layouts.
 
-Just download one of the embedded html files from the Google Drive folder below (which ever "layout & deck" combo you like) then open it with your device's browser. They work on my phone and hopefully will work on yours.
+Just download one of the embedded html files from the Google Drive folder below (which ever "Deck & Meanings" combo you like) and open it with your device's browser. They work on my phone and hopefully will work on yours.
 
-[Folder of Completely Embedded Versions (for the phone)](https://drive.google.com/drive/folders/1lbfcxlHbkPkIrWJ4lBdQcY3va5lfuAQf?usp=sharing)
+[Folder of Completely Embedded Versions](https://drive.google.com/drive/folders/1lbfcxlHbkPkIrWJ4lBdQcY3va5lfuAQf?usp=sharing) for off-line phone or tablet use.
 
 The folder also contains some screenshots if you want to check out the decks in various layouts.
-
-Note: the script I used to create the embedded html is included (tools/make-embedded.sh).
 
 ## The Card Images
 
