@@ -33,8 +33,6 @@ Just download one of the embedded html files from the Google Drive folder below 
 
 [Folder of Completely Embedded Versions](https://drive.google.com/drive/folders/1lbfcxlHbkPkIrWJ4lBdQcY3va5lfuAQf?usp=sharing) for off-line phone or tablet use.
 
-The folder also contains some screenshots if you want to check out the decks in various layouts.
-
 ## The Card Images
 
 I've included some notes on how I modified the images with Imagemagick and Gimp for those interested.
@@ -61,7 +59,8 @@ If you just want to browse through the card images here's a Google Drive folder 
 - [The Tarot By S. L. MacGregor Mathers](https://sacred-texts.com/tarot/mathers/index.htm)
 - [Le grand Etteilla, ou, l'art de tirer les cartes](https://archive.org/details/b29321220)
 - [Etteilla in English](https://stolen-thyme.com/etteilla-in-english/)
-- [Mark McElroy via TarotTools.com (creative commons share and share alike)](https://tarottools.com/tarot-card-meanings-toc)
+- [Mark McElroy Guide to Tarot Reading via TarotMysterium.com](https://tarotmysterium.com/books/A%20Guide%20to%20Tarot%20Card%20Reading%20by%20Mark%20McElroy.php?embed=&ctrls=&section=toc)
+- [Mark McElroy Tarot Meanings via TarotTools.com (creative commons share and share alike)](https://tarottools.com/tarot-card-meanings-toc)
 - [Yoav Ben-Dov Little-White-Book](https://cbdtarot.com/download/)
 
 ## Screenshot
