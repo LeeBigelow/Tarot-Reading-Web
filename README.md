@@ -5,14 +5,14 @@ You can use the online live version here: [Tarot-Reading-Web](https://leebigelow
 
 I had been exploring the online museum archives of old Tarot cards and wanted to try cleaning up the images with ImageMagick and GIMP.  Then I decided to put the cleaned images to use and made this little Tarot reading program.
 
-To use it you should be able to download as a zip, unzip, and load the html files in a web browser:
+To use it you should be able to download as a zip, unzip, and load the index.html file in a web browser:
 
 [Tarot-Reading-Web-main.zip](https://github.com/LeeBigelow/Tarot-Reading-Web/archive/refs/heads/main.zip)
 
 ``` 
 unzip Tarot-Reading-Web-main.zip
 cd Tarot-Reading-Web-main
-firefox five-card-story.html
+firefox index.html
 ```
 
 Or git clone it:
@@ -20,10 +20,10 @@ Or git clone it:
 ```
 git clone https://github.com/LeeBigelow/Tarot-Reading-Web.git
 cd Tarot-Reading-Web
-firefox celtic-cross.html
+firefox index.html
 ```
 
-Nothing fancy. So far just Celtic-Cross, Five-Card-Story, or Ten-Card-Triangle layouts. Click on the deck to deal out the cards. Click on a card to flip and get some interpretation info. The top left has "Decks" and "Layouts" menus. You can switch decks at any time and have cards from different decks in the same layout.
+Nothing fancy. A few simple layouts. Click on the deck to deal out the cards. Click on a card to flip and get some interpretation info. The top left has "Decks" and "Layouts" menus. You can switch decks at any time and have cards from different decks in the same layout if that's way you roll.
 
 ## Embedded versions for phones
 
