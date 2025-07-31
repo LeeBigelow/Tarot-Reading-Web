@@ -120,7 +120,7 @@ function dealCard(cardDiv) {
 		transformOrigin: 'top left',
 		transform: 'none'
 	}], {
-		duration: 600,
+		duration: 800,
 	});
 };
 
