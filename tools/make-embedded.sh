@@ -7,6 +7,8 @@ for prog in cwebp base64; do
 done
 srcdir=".."
 outdir="."
+b64dir="./decks-b64-js"
+mkdir -p $b64dir
 deck="2010"
 meanings="mcelroy"
 
@@ -23,10 +25,10 @@ Deck: $deck
 Meanings: $meanings
 
 EOF
-	deck_opts=$(find "$srcdir"/resources/images/ -maxdepth 1 -mindepth 1 -type d -printf "%f\n" | sort)
+	deck_opts=$(find "$srcdir"/resources/images/ -maxdepth 1 -mindepth 1 \( -type d -o -type l \) -printf "%f\n" | sort)
 	printf "## -d Deck Options (Just use the year):\n$deck_opts\n\n"
 
-	meanings_opts=$(find "$srcdir"/resources/js/ -type f -name "meanings-*.js" -printf "%f\n" | sed 's/meanings-//; s/\.js//')
+	meanings_opts=$(find "$srcdir"/resources/js/ \( -type f -o -type l \) -name "meanings-*.js" -printf "%f\n" | sed 's/meanings-//; s/\.js//')
 	printf "## -m Meanings Options:\n$meanings_opts\n\n"
 
 	exit
@@ -63,13 +65,16 @@ for f in $index_file $default_css_file $meanings_file $deal_file; do
 	fi
 done
 
-layout_files=$(find "$srcdir/resources/js/" -type f -name "layout-*.js") 
+layout_files=$(find "$srcdir/resources/js/" \( -type f -o -type l \) -name "layout-*.js") 
 if [[ -z "$layout_files" ]]; then
 	echo "Error, no layout-*.js files in $srcdir/resources/js"
 	exit
 fi
 
-deck_name=$(find "$srcdir/resources/images/" -type d -name "$deck*" -printf "%f")
+# resolve full deck name, ignore bracketed meanings variants
+deck_name=$(find "$srcdir/resources/images/" \
+	\( -type d -o -type l \) \
+	-name "$deck*" ! -name "*(*)" -printf "%f")
 if [[ -z "$deck_name" ]]; then
 	echo "Error, not a valid deck year: $deck"
 	exit
@@ -88,7 +93,7 @@ if [[ -e "$embedded_file" ]]; then
 fi
 
 # Find or create b64 card images
-b64_file="$deck_name-b64.js"
+b64_file="$b64dir/$deck_name-b64.js"
 if [[ ! -e "$b64_file" ]]; then
 	echo "Caching b64 images in file: $b64_file"
 	printf "// $deck_name images\n" >> "$b64_file"
@@ -143,7 +148,9 @@ sed -e '/EMBEDDED IGNORE START/,/EMBEDDED IGNORE END/d' \
 	-e '/MEANINGS START/q' "$deal_file" >> "$embedded_file"
 
 # Waite deck with McElroy meanings
-if [[ "$deck" == "1909" && "$meanings" == "mcelroy" ]]; then 
+if [[ ( "$deck" == "1909" || "$deck" == "1910" ) \
+	&& "$meanings" == "mcelroy" ]]; then 
+	echo "Waite with McElroy so Switching Justice and Strength cards..."
 	cat << EOF | sed 's/^/\t\t\t/' >> "$embedded_file"
 	default:
 		// Waite deck with McElroy meanings
