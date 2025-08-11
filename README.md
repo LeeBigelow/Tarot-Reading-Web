@@ -45,6 +45,7 @@ If you just want to browse through the card images here's a Google Drive folder 
 
 - [1709 Pierre Madenié (no trumps) - British Museum](https://www.britishmuseum.org/collection/object/P_1896-0501-590-1-56)
 - [1709 Pierre Madenié (only trumps) - tarot-demarseille-millennium.com](https://tarot-de-marseille-millennium.com/galerie_tarots_historiques.html)    
+- [1709 Pierre Madenié (only trumps) - tarot-demarseille-heritage.com](https://old.tarot-de-marseille-heritage.com/catalogue_madenie1709.html)    
 - [1760 Nicolas Conver - gallica.bnf.fr](https://gallica.bnf.fr/ark:/12148/btv1b10537352g)
 - [1760 Nicolas Conver (1890 Camoin reprint) - gallica.bnf.fr](https://gallica.bnf.fr/ark:/12148/btv1b10543309g)
 - [1789 Etteilla's Livre de Thot](https://publicdomainreview.org/collection/etteilla-thot/)
@@ -60,7 +61,7 @@ If you just want to browse through the card images here's a Google Drive folder 
 - [Le grand Etteilla, ou, l'art de tirer les cartes](https://archive.org/details/b29321220)
 - [Etteilla in English](https://stolen-thyme.com/etteilla-in-english/)
 - [Mark McElroy Guide to Tarot Reading via TarotMysterium.com](https://tarotmysterium.com/books/A%20Guide%20to%20Tarot%20Card%20Reading%20by%20Mark%20McElroy.php?embed=&ctrls=&section=toc)
-- [Mark McElroy Tarot Meanings via TarotTools.com (creative commons share and share alike)](https://tarottools.com/tarot-card-meanings-toc)
+- [Mark McElroy A Guide to Tarot Meanings (Uncopyright 2014)](https://archive.org/details/guidetotarotcard0000mark/)
 - [Yoav Ben-Dov Little-White-Book](https://cbdtarot.com/download/)
 
 ## Screenshot

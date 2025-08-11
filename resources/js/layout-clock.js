@@ -89,9 +89,6 @@ clock_css = `
 	#card-4 .card-inner.is-flipped {
 		transform: scale(180%) rotateY(180deg) rotate(135deg);
 	}
-	#card-5 .card-inner.is-flipped {
-		transform: scale(180%) rotateY(180deg) rotate(180deg);
-	}
 	#card-6 .card-inner.is-flipped {
 		transform: scale(180%) rotateY(180deg) rotate(-135deg);
 	}
@@ -118,9 +115,6 @@ clock_css = `
 	}
 	#card-4 {
 		transform: rotate(135deg);
-	}
-	#card-5 {
-		transform: rotate(180deg);
 	}
 	#card-6 {
 		transform: rotate(-135deg);
