@@ -39,14 +39,18 @@ const imageDir = 'resources/images/';
 
 const cardDecks = [
 	// DECKS START
-	'1709_Pierre_Madenié',
-	'1760_Nicolas_Conver',
-	'1789_Etteilla_Livre_de_Thot',
-	'1835_Gumppenberg_Dellarocca',
-	'1880_Avondo_Dellarocca',
-	'1909_Rider-Waite-Smith',
+	'1709_Pierre_Madenié_(Ben-Dov)',
+	'1709_Pierre_Madenié_(McElroy)',
+	'1760_Nicolas_Conver_(Ben-Dov)',
+	'1760_Nicolas_Conver_(McElroy)',
+	'1789_Etteilla_Livre_de_Thot_(Etteila)',
+	'1835_Gumppenberg_Dellarocca_(Ben-Dov)',
+	'1835_Gumppenberg_Dellarocca_(McElroy)',
+	'1880_Avondo_Dellarocca_(Ben-Dov)',
+	'1880_Avondo_Dellarocca_(McElroy)',
 	'1909_Rider-Waite-Smith_(McElroy)',
-	'2010_Yoav_Ben-Dov',
+	'1909_Rider-Waite-Smith_(Waite)',
+	'2010_Yoav_Ben-Dov_(Ben-Dov)',
 	'2010_Yoav_Ben-Dov_(McElroy)',
 	// DECKS END
 ];
@@ -182,17 +186,17 @@ function showCard() {
 			}
 			cardBackDiv.innerHTML += '<p class="author">-- Mark McElroy</p>';
 			break;
-		case selectedDeck.includes('Waite'):
+		case selectedDeck.includes('(Ben-Dov)'):
+			cardBackDiv.innerHTML += bendovMeanings[cardCode];
+			cardBackDiv.innerHTML += '<p class="author">-- Yoav Ben-Dov</p>';
+			break;
+		case selectedDeck.includes('(Waite)'):
 			cardBackDiv.innerHTML += waiteMeanings[cardCode];
 			cardBackDiv.innerHTML += '<p class="author">-- A. E. Waite</p>';
 			break;
-		case selectedDeck.includes('Etteilla'):
+		case selectedDeck.includes('(Etteilla)'):
 			cardBackDiv.innerHTML += etteillaMeanings[cardCode];
 			cardBackDiv.innerHTML += '<p class="author">-- Etteilla</p>';
-			break;
-		case selectedDeck.includes('Ben-Dov'):
-			cardBackDiv.innerHTML += bendovMeanings[cardCode];
-			cardBackDiv.innerHTML += '<p class="author">-- Yoav Ben-Dov</p>';
 			break;
 		default:
 			cardBackDiv.innerHTML += mcelroyMeanings[cardCode];

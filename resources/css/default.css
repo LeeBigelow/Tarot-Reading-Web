@@ -121,9 +121,13 @@ h1 {
 	margin: 0px -10px;
 	border: 3px solid #1b1a23;
 	background-color: #2b2a33;
-	width: 15em;
+	width: 18em;
 	font-size: 12pt;
 	z-index: 1;
+}
+
+#layout-list {
+	width: 7em;
 }
 
 .dropdown:hover .dropdown-content {
