@@ -6,40 +6,27 @@ for prog in cwebp base64; do
 	fi
 done
 srcdir=".."
-outdir="."
+outdir="./embedded"
+mkdir -p "$outdir"
 b64dir="./decks-b64-js"
-mkdir -p $b64dir
-deck="2010"
-meanings="mcelroy"
+mkdir -p "$b64dir"
+deckpath=""
+meanings=""
 
 usage() {
 	cat << EOF
-Usage: ${0##*/} [-d DECK] [-m MEANINGS] [-o OUTPUT_DIR] [-s SOURCE_DIR ]
-    At least one option must be specified, eg -d 1880
+Usage: ${0##*/} [-o OUTPUT_DIR] [-s SOURCE_DIR ] DECK_PATH
+	DECK_PATH name contains "(MEANING)" to use.
     Will build a fully embedded html file containing specified
     layout, deck images, and meanings.
-
-## Defaults
-Source Directory: $srcdir
-Deck: $deck
-Meanings: $meanings
-
 EOF
-	deck_opts=$(find "$srcdir"/resources/images/ -maxdepth 1 -mindepth 1 \( -type d -o -type l \) -printf "%f\n" | sort)
-	printf "## -d Deck Options (Just use the year):\n$deck_opts\n\n"
-
-	meanings_opts=$(find "$srcdir"/resources/js/ \( -type f -o -type l \) -name "meanings-*.js" -printf "%f\n" | sed 's/meanings-//; s/\.js//')
-	printf "## -m Meanings Options:\n$meanings_opts\n\n"
-
-	exit
+	exit 1
 }
 
 [[ "$#" -eq 0 ]] && usage
 
-while getopts ":d:l:m:o:s:" opt; do
+while getopts ":o:s:" opt; do
 	case "$opt" in
-		d) deck="$OPTARG" ;;
-		m) meanings="$OPTARG" ;;
 		o) outdir="$OPTARG" ;;
 		s) srcdir="$OPTARG" ;;
 		*) usage;;
@@ -47,9 +34,27 @@ while getopts ":d:l:m:o:s:" opt; do
 done
 shift $(( OPTIND - 1 ))
 
+deckpath="$1"
+if [[ ! -d "$deckpath" ]]; then
+	echo "Not a directory: $deckpath"
+	usage
+fi
+
+deckpath="${deckpath%/}"
+
+#deckname for cached b64 images
+deckname="${deckpath##*/}"
+deckname="${deckname%_(*}"
+
+meanings="${deckpath##*(}" 
+meanings="${meanings%)*}" 
+# lower case, remove ben-dov hypen
+meanings="${meanings@L}"
+meanings="${meanings/-/}"
+
 echo "Source Dir: $srcdir"
 echo "Output Dir: $outdir"
-echo "Deck: $deck"
+echo "Deck Dir: $deckpath"
 echo "Meanings: $meanings"
 
 default_css_file="$srcdir/resources/css/default.css"
@@ -71,37 +76,27 @@ if [[ -z "$layout_files" ]]; then
 	exit
 fi
 
-# resolve full deck name, ignore bracketed meanings variants
-deck_name=$(find "$srcdir/resources/images/" \
-	\( -type d -o -type l \) \
-	-name "$deck*" ! -name "*(*)" -printf "%f")
-if [[ -z "$deck_name" ]]; then
-	echo "Error, not a valid deck year: $deck"
-	exit
-fi
-
-deck_dir="$srcdir/resources/images/$deck_name"
 if [[ ! -d "$outdir" ]]; then
 	echo "Not a directory: $outdir"
 	exit
 fi
 
-embedded_file="$outdir/$deck_name-$meanings-embedded.html"
+embedded_file="$outdir/${deckpath##*/}-embedded.html"
 if [[ -e "$embedded_file" ]]; then
 	echo "Error, file already exists: $embedded_file"
 	exit
 fi
 
 # Find or create b64 card images
-b64_file="$b64dir/$deck_name-b64.js"
+b64_file="$b64dir/$deckname-b64.js"
 if [[ ! -e "$b64_file" ]]; then
 	echo "Caching b64 images in file: $b64_file"
-	printf "// $deck_name images\n" >> "$b64_file"
+	printf "// $deckname images\n" >> "$b64_file"
 	printf 'const cardImages = {\n' >> "$b64_file"
-	for img in $(ls "$deck_dir"); do
+	for img in $(ls "$deckpath"); do
 		echo "base64 encoding $img..."
 		printf "\t${img%.webp}: '" >> "$b64_file"
-		cwebp -quiet -m 6 -q 10 -o - "$deck_dir/$img" | base64 -w 0 >> "$b64_file"
+		cwebp -quiet -m 6 -q 10 -o - "$deckpath/$img" | base64 -w 0 >> "$b64_file"
 		printf "',\n" >> "$b64_file"
 	done
 	printf '};\n' >> "$b64_file"
@@ -148,8 +143,7 @@ sed -e '/EMBEDDED IGNORE START/,/EMBEDDED IGNORE END/d' \
 	-e '/MEANINGS START/q' "$deal_file" >> "$embedded_file"
 
 # Waite deck with McElroy meanings
-if [[ ( "$deck" == "1909" || "$deck" == "1910" ) \
-	&& "$meanings" == "mcelroy" ]]; then 
+if [[ "$deckname" == *"Rider-Waite-Smith"* && "$meanings" == "mcelroy" ]]; then 
 	echo "Waite with McElroy so Switching Justice and Strength cards..."
 	cat << EOF | sed 's/^/\t\t\t/' >> "$embedded_file"
 	default:
@@ -167,8 +161,8 @@ if [[ ( "$deck" == "1909" || "$deck" == "1910" ) \
 		cardBackDiv.innerHTML += '<p class="author">-- '+meaningsAuthor+'</p>';
 		break;
 EOF
-# Deal.js selected meanings option
 else
+	# set default meanings to embedded ones 
 	cat << EOF | sed 's/^/\t\t\t/' >> "$embedded_file"
 	default:
 		cardBackDiv.innerHTML += cardMeanings[cardCode];
@@ -184,7 +178,7 @@ sed -n -e 's/^/\t\t\t/' \
 
 # Deal.js set specified deck, close script and html
 cat << EOF >> "$embedded_file"
-			layoutInit(getRandomLayout(), "$deck_name");
+			layoutInit(getRandomLayout(), "${deckpath##*/}");
 		</script>
 	</body>
 </html>
@@ -193,3 +187,4 @@ EOF
 # Clean trailing whitespace (and whitespace only lines)
 sed -i 's/[ \t]\+$//' "$embedded_file"
 
+echo "Created: $embedded_file"

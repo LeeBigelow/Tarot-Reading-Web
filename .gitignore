@@ -1,7 +1,11 @@
 # ignore large fully embedded files, can create when needed
+embedded/
 *-embedded.html
+
+# cached base64 images
+decks-b64-js/
+*-b64.js
+
 # ignore deal.js backups when updating decks
 *.bak
-# cached base64 images
-*-b64.js
 
