@@ -37,7 +37,7 @@ const cardDecks = [
 	'1709_Pierre_Madenié_(McElroy)',
 	'1760_Nicolas_Conver_(Ben-Dov)',
 	'1760_Nicolas_Conver_(McElroy)',
-	'1789_Etteilla_Livre_de_Thot_(Etteila)',
+	'1789_Etteilla_Livre_de_Thot_(Etteilla)',
 	'1835_Gumppenberg_Dellarocca_(Ben-Dov)',
 	'1835_Gumppenberg_Dellarocca_(McElroy)',
 	'1880_Avondo_Dellarocca_(Ben-Dov)',
