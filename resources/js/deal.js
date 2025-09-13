@@ -28,12 +28,6 @@ layouts.forEach(layout => {
 	layoutList.appendChild(layoutDiv);
 });
 
-function getRandomLayout() {
-	shuffleArray(layouts);
-	return layouts[0].toLowerCase();
-};
-
-
 // EMBEDDED IGNORE START
 const imageDir = 'resources/images/';
 
@@ -66,10 +60,6 @@ cardDecks.forEach(deckDir => {
 	deckList.appendChild(deckDiv);
 });
 
-function getRandomDeck() {
-	shuffleArray(cardDecks);
-	return cardDecks[0];
-};
 // EMBEDDED IGNORE END
 
 function changeDeck(deck) {
@@ -229,4 +219,4 @@ function layoutInit(layout, deck) {
 	changeDeck(deck)
 };
 
-layoutInit(getRandomLayout(), getRandomDeck());
+layoutInit("story", "1760_Nicolas_Conver_(Ben-Dov)");
