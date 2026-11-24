@@ -13,17 +13,17 @@ Hue-Saturation adjustments:
   range yellow: lightness 13.0
   range green: lightness 16.0
 Auto Whitebalance
-  
+
 # Use parallel to process multiple images at once
 # This changes jpg files to png, chopping off bottom 30px
 parallel 'magick {} -gravity south -chop 0x30 chop-{.}.png' ::: *.jpg
 
 # Fill border with a different color
-# Using red as an example here, and using point 3,3 as the 
+# Using red as an example here, and using point 3,3 as the
 # 'seed' point for the fill
 magick img.png -fuzz 10% -fill red -draw 'color 3,3 floodfill' out.png
 
-# Replace all pixels close to white with another color 
+# Replace all pixels close to white with another color
 magick img.png -fuzz 20% -fill "#D8C39F" -opaque white out.png
 
 # Useful contrast ajustments
@@ -47,5 +47,5 @@ magick img.gif -fuzz 10% -fill red -draw 'color 0,0 floodfill' out.png
 magick img.png -fuzz 10% -fill "#4a3f2eFF" -opaque "#6A5F4EFF" -level 10% out.png
 
 # overlay lighten color for old muddy images
- magick img.png \( +clone -modulate 200%,200%,100% -colors 64 -fuzz 50% -transparent white -channel A -evaluate multiply 0.6 +channel \) -composite out.png 
+ magick img.png \( +clone -modulate 200%,200%,100% -colors 64 -fuzz 50% -transparent white -channel A -evaluate multiply 0.6 +channel \) -composite out.png
 

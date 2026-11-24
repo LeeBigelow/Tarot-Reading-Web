@@ -9,7 +9,7 @@ To use it you should be able to download as a zip, unzip, and load the index.htm
 
 [Tarot-Reading-Web-main.zip](https://github.com/LeeBigelow/Tarot-Reading-Web/archive/refs/heads/main.zip)
 
-``` 
+```
 unzip Tarot-Reading-Web-main.zip
 cd Tarot-Reading-Web-main
 firefox index.html
@@ -25,27 +25,11 @@ firefox index.html
 
 Nothing fancy. A few simple layouts. Click on the deck to deal out the cards. Click on a card to flip and get some interpretation info. The top left has "Decks" and "Layouts" menus. You can switch decks at any time and have cards from different decks in the same layout.
 
-## Embedded versions for phones
-
-You can use the [online version](https://LeeBigelow.github.io/Tarot-Reading-Web) on your phone or tablet but unfortunately you can't download and run it off-line on your device. The problem is that phone and tablet browsers don't like reading external javascript and css files. To solve this I've made some embedded all-in-one html versions that you can download. Each file contains all the card images for one deck type (compressed and base64 encoded), one set of "meanings", and all the layouts.
-
-Just download one of the embedded html files from the Google Drive folder below (whichever "Deck & Meanings" combo you like) and open it with your device's browser. They work on my phone and hopefully will work on yours.
-
-[Folder of Completely Embedded Versions](https://drive.google.com/drive/folders/1lbfcxlHbkPkIrWJ4lBdQcY3va5lfuAQf?usp=sharing) for off-line phone or tablet use.
-
-## The Card Images
-
-I've included some notes on how I modified the images with Imagemagick and Gimp for those interested.
-
-If you just want to browse through the card images here's a Google Drive folder of the decks:
-
-[Tarot Decks on Google Drive](https://drive.google.com/drive/folders/1u3_QSi-YJDf84ZH5FjdO13Tc_AFnhNWU?usp=drive_link)
-
 ## Image Sources
 
 - [1709 Pierre Madenié (no trumps) - British Museum](https://www.britishmuseum.org/collection/object/P_1896-0501-590-1-56)
-- [1709 Pierre Madenié (only trumps) - tarot-demarseille-millennium.com](https://tarot-de-marseille-millennium.com/galerie_tarots_historiques.html)    
-- [1709 Pierre Madenié (only trumps) - tarot-demarseille-heritage.com](https://old.tarot-de-marseille-heritage.com/catalogue_madenie1709.html)    
+- [1709 Pierre Madenié (only trumps) - tarot-demarseille-millennium.com](https://tarot-de-marseille-millennium.com/galerie_tarots_historiques.html)
+- [1709 Pierre Madenié (only trumps) - tarot-demarseille-heritage.com](https://old.tarot-de-marseille-heritage.com/catalogue_madenie1709.html)
 - [1760 Nicolas Conver - gallica.bnf.fr](https://gallica.bnf.fr/ark:/12148/btv1b10537352g)
 - [1760 Nicolas Conver - britishmuseum.org](https://www.britishmuseum.org/collection/object/P_1896-0501-549-1-77)
 - [1760 Nicolas Conver (1890 Camoin reprint) - gallica.bnf.fr](https://gallica.bnf.fr/ark:/12148/btv1b10543309g)
